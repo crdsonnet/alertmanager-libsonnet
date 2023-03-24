@@ -1,0 +1,1485 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prometheus/alertmanager/config/config",
+  "$ref": "#/$defs/Config",
+  "$defs": {
+    "Authorization": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "credentials": {
+          "type": "string"
+        },
+        "credentials_file": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "BasicAuth": {
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "password_file": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "username"
+      ]
+    },
+    "Config": {
+      "properties": {
+        "global": {
+          "$ref": "#/$defs/GlobalConfig"
+        },
+        "route": {
+          "$ref": "#/$defs/Route"
+        },
+        "inhibit_rules": {
+          "items": {
+            "$ref": "#/$defs/InhibitRule"
+          },
+          "type": "array"
+        },
+        "receivers": {
+          "items": {
+            "$ref": "#/$defs/Receiver"
+          },
+          "type": "array"
+        },
+        "templates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "mute_time_intervals": {
+          "items": {
+            "$ref": "#/$defs/MuteTimeInterval"
+          },
+          "type": "array"
+        },
+        "time_intervals": {
+          "items": {
+            "$ref": "#/$defs/TimeInterval"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "templates"
+      ]
+    },
+    "DayOfMonthRange": {
+      "properties": {
+        "Begin": {
+          "type": "integer"
+        },
+        "End": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Begin",
+        "End"
+      ]
+    },
+    "DiscordConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "webhook_url": {
+          "$ref": "#/$defs/SecretURL"
+        },
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "EmailConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "to": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "hello": {
+          "type": "string"
+        },
+        "smarthost": {
+          "$ref": "#/$defs/HostPort"
+        },
+        "auth_username": {
+          "type": "string"
+        },
+        "auth_password": {
+          "type": "string"
+        },
+        "auth_password_file": {
+          "type": "string"
+        },
+        "auth_secret": {
+          "type": "string"
+        },
+        "auth_identity": {
+          "type": "string"
+        },
+        "headers": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "html": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "require_tls": {
+          "type": "boolean"
+        },
+        "tls_config": {
+          "$ref": "#/$defs/TLSConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "GlobalConfig": {
+      "properties": {
+        "resolve_timeout": {
+          "type": "integer"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "smtp_from": {
+          "type": "string"
+        },
+        "smtp_hello": {
+          "type": "string"
+        },
+        "smtp_smarthost": {
+          "$ref": "#/$defs/HostPort"
+        },
+        "smtp_auth_username": {
+          "type": "string"
+        },
+        "smtp_auth_password": {
+          "type": "string"
+        },
+        "smtp_auth_password_file": {
+          "type": "string"
+        },
+        "smtp_auth_secret": {
+          "type": "string"
+        },
+        "smtp_auth_identity": {
+          "type": "string"
+        },
+        "smtp_require_tls": {
+          "type": "boolean"
+        },
+        "slack_api_url": {
+          "$ref": "#/$defs/SecretURL"
+        },
+        "slack_api_url_file": {
+          "type": "string"
+        },
+        "pagerduty_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "opsgenie_api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "opsgenie_api_key": {
+          "type": "string"
+        },
+        "opsgenie_api_key_file": {
+          "type": "string"
+        },
+        "wechat_api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "wechat_api_secret": {
+          "type": "string"
+        },
+        "wechat_api_corp_id": {
+          "type": "string"
+        },
+        "victorops_api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "victorops_api_key": {
+          "type": "string"
+        },
+        "victorops_api_key_file": {
+          "type": "string"
+        },
+        "telegram_api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "webex_api_url": {
+          "$ref": "#/$defs/URL"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "resolve_timeout"
+      ]
+    },
+    "HTTPClientConfig": {
+      "properties": {
+        "basic_auth": {
+          "$ref": "#/$defs/BasicAuth"
+        },
+        "authorization": {
+          "$ref": "#/$defs/Authorization"
+        },
+        "oauth2": {
+          "$ref": "#/$defs/OAuth2"
+        },
+        "bearer_token": {
+          "type": "string"
+        },
+        "bearer_token_file": {
+          "type": "string"
+        },
+        "proxy_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "tls_config": {
+          "$ref": "#/$defs/TLSConfig"
+        },
+        "follow_redirects": {
+          "type": "boolean"
+        },
+        "enable_http2": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "follow_redirects",
+        "enable_http2"
+      ]
+    },
+    "HostPort": {
+      "properties": {
+        "Host": {
+          "type": "string"
+        },
+        "Port": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Host",
+        "Port"
+      ]
+    },
+    "InhibitRule": {
+      "properties": {
+        "source_match": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "source_match_re": {
+          "$ref": "#/$defs/MatchRegexps"
+        },
+        "source_matchers": {
+          "$ref": "#/$defs/Matchers"
+        },
+        "target_match": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "target_match_re": {
+          "$ref": "#/$defs/MatchRegexps"
+        },
+        "target_matchers": {
+          "$ref": "#/$defs/Matchers"
+        },
+        "equal": {
+          "$ref": "#/$defs/LabelNames"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "LabelNames": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "Location": {
+      "properties": {},
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "MatchRegexps": {
+      "patternProperties": {
+        ".*": {
+          "$ref": "#/$defs/Regexp"
+        }
+      },
+      "type": "object"
+    },
+    "Matcher": {
+      "properties": {
+        "Type": {
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Type",
+        "Name",
+        "Value"
+      ]
+    },
+    "Matchers": {
+      "items": {
+        "$ref": "#/$defs/Matcher"
+      },
+      "type": "array"
+    },
+    "MonthRange": {
+      "properties": {
+        "Begin": {
+          "type": "integer"
+        },
+        "End": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Begin",
+        "End"
+      ]
+    },
+    "MuteTimeInterval": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "time_intervals": {
+          "items": {
+            "$ref": "#/$defs/TimeInterval"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "name",
+        "time_intervals"
+      ]
+    },
+    "OAuth2": {
+      "properties": {
+        "client_id": {
+          "type": "string"
+        },
+        "client_secret": {
+          "type": "string"
+        },
+        "client_secret_file": {
+          "type": "string"
+        },
+        "scopes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "token_url": {
+          "type": "string"
+        },
+        "endpoint_params": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "proxy_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "TLSConfig": {
+          "$ref": "#/$defs/TLSConfig"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "client_id",
+        "client_secret",
+        "client_secret_file",
+        "token_url",
+        "TLSConfig"
+      ]
+    },
+    "OpsGenieConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "api_key": {
+          "type": "string"
+        },
+        "api_key_file": {
+          "type": "string"
+        },
+        "api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "message": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "details": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "entity": {
+          "type": "string"
+        },
+        "responders": {
+          "items": {
+            "$ref": "#/$defs/OpsGenieConfigResponder"
+          },
+          "type": "array"
+        },
+        "actions": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "update_alerts": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "OpsGenieConfigResponder": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "PagerdutyConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "service_key": {
+          "type": "string"
+        },
+        "service_key_file": {
+          "type": "string"
+        },
+        "routing_key": {
+          "type": "string"
+        },
+        "routing_key_file": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/$defs/URL"
+        },
+        "client": {
+          "type": "string"
+        },
+        "client_url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "details": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/$defs/PagerdutyImage"
+          },
+          "type": "array"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/$defs/PagerdutyLink"
+          },
+          "type": "array"
+        },
+        "source": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "component": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "PagerdutyImage": {
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "PagerdutyLink": {
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "PushoverConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "user_key": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "url_title": {
+          "type": "string"
+        },
+        "sound": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "retry": {
+          "type": "integer"
+        },
+        "expire": {
+          "type": "integer"
+        },
+        "html": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "Receiver": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "discord_configs": {
+          "items": {
+            "$ref": "#/$defs/DiscordConfig"
+          },
+          "type": "array"
+        },
+        "email_configs": {
+          "items": {
+            "$ref": "#/$defs/EmailConfig"
+          },
+          "type": "array"
+        },
+        "pagerduty_configs": {
+          "items": {
+            "$ref": "#/$defs/PagerdutyConfig"
+          },
+          "type": "array"
+        },
+        "slack_configs": {
+          "items": {
+            "$ref": "#/$defs/SlackConfig"
+          },
+          "type": "array"
+        },
+        "webhook_configs": {
+          "items": {
+            "$ref": "#/$defs/WebhookConfig"
+          },
+          "type": "array"
+        },
+        "opsgenie_configs": {
+          "items": {
+            "$ref": "#/$defs/OpsGenieConfig"
+          },
+          "type": "array"
+        },
+        "wechat_configs": {
+          "items": {
+            "$ref": "#/$defs/WechatConfig"
+          },
+          "type": "array"
+        },
+        "pushover_configs": {
+          "items": {
+            "$ref": "#/$defs/PushoverConfig"
+          },
+          "type": "array"
+        },
+        "victorops_configs": {
+          "items": {
+            "$ref": "#/$defs/VictorOpsConfig"
+          },
+          "type": "array"
+        },
+        "sns_configs": {
+          "items": {
+            "$ref": "#/$defs/SNSConfig"
+          },
+          "type": "array"
+        },
+        "telegram_configs": {
+          "items": {
+            "$ref": "#/$defs/TelegramConfig"
+          },
+          "type": "array"
+        },
+        "webex_configs": {
+          "items": {
+            "$ref": "#/$defs/WebexConfig"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "name"
+      ]
+    },
+    "Regexp": {
+      "properties": {},
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "Route": {
+      "properties": {
+        "receiver": {
+          "type": "string"
+        },
+        "group_by": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "match": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "match_re": {
+          "$ref": "#/$defs/MatchRegexps"
+        },
+        "matchers": {
+          "$ref": "#/$defs/Matchers"
+        },
+        "mute_time_intervals": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "active_time_intervals": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "continue": {
+          "type": "boolean"
+        },
+        "routes": {
+          "items": {
+            "$ref": "#/$defs/Route"
+          },
+          "type": "array"
+        },
+        "group_wait": {
+          "type": "integer"
+        },
+        "group_interval": {
+          "type": "integer"
+        },
+        "repeat_interval": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SNSConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "api_url": {
+          "type": "string"
+        },
+        "sigv4": {
+          "$ref": "#/$defs/SigV4Config"
+        },
+        "topic_arn": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "target_arn": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "attributes": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved",
+        "sigv4"
+      ]
+    },
+    "SecretURL": {
+      "properties": {
+        "Scheme": {
+          "type": "string"
+        },
+        "Opaque": {
+          "type": "string"
+        },
+        "User": {
+          "$ref": "#/$defs/Userinfo"
+        },
+        "Host": {
+          "type": "string"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "RawPath": {
+          "type": "string"
+        },
+        "OmitHost": {
+          "type": "boolean"
+        },
+        "ForceQuery": {
+          "type": "boolean"
+        },
+        "RawQuery": {
+          "type": "string"
+        },
+        "Fragment": {
+          "type": "string"
+        },
+        "RawFragment": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Scheme",
+        "Opaque",
+        "User",
+        "Host",
+        "Path",
+        "RawPath",
+        "OmitHost",
+        "ForceQuery",
+        "RawQuery",
+        "Fragment",
+        "RawFragment"
+      ]
+    },
+    "SigV4Config": {
+      "properties": {
+        "Region": {
+          "type": "string"
+        },
+        "AccessKey": {
+          "type": "string"
+        },
+        "SecretKey": {
+          "type": "string"
+        },
+        "Profile": {
+          "type": "string"
+        },
+        "RoleARN": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Region",
+        "AccessKey",
+        "SecretKey",
+        "Profile",
+        "RoleARN"
+      ]
+    },
+    "SlackAction": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "confirm": {
+          "$ref": "#/$defs/SlackConfirmationField"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SlackConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "api_url": {
+          "$ref": "#/$defs/SecretURL"
+        },
+        "api_url_file": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "title_link": {
+          "type": "string"
+        },
+        "pretext": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "fields": {
+          "items": {
+            "$ref": "#/$defs/SlackField"
+          },
+          "type": "array"
+        },
+        "short_fields": {
+          "type": "boolean"
+        },
+        "footer": {
+          "type": "string"
+        },
+        "fallback": {
+          "type": "string"
+        },
+        "callback_id": {
+          "type": "string"
+        },
+        "icon_emoji": {
+          "type": "string"
+        },
+        "icon_url": {
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "thumb_url": {
+          "type": "string"
+        },
+        "link_names": {
+          "type": "boolean"
+        },
+        "mrkdwn_in": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "actions": {
+          "items": {
+            "$ref": "#/$defs/SlackAction"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "SlackConfirmationField": {
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "ok_text": {
+          "type": "string"
+        },
+        "dismiss_text": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SlackField": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "short": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "TLSConfig": {
+      "properties": {
+        "ca_file": {
+          "type": "string"
+        },
+        "cert_file": {
+          "type": "string"
+        },
+        "key_file": {
+          "type": "string"
+        },
+        "server_name": {
+          "type": "string"
+        },
+        "insecure_skip_verify": {
+          "type": "boolean"
+        },
+        "min_version": {
+          "type": "integer"
+        },
+        "max_version": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "insecure_skip_verify"
+      ]
+    },
+    "TelegramConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "token": {
+          "type": "string"
+        },
+        "chat": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "disable_notifications": {
+          "type": "boolean"
+        },
+        "parse_mode": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "TimeInterval": {
+      "properties": {
+        "times": {
+          "items": {
+            "$ref": "#/$defs/TimeRange"
+          },
+          "type": "array"
+        },
+        "weekdays": {
+          "items": {
+            "$ref": "#/$defs/WeekdayRange"
+          },
+          "type": "array"
+        },
+        "days_of_month": {
+          "items": {
+            "$ref": "#/$defs/DayOfMonthRange"
+          },
+          "type": "array"
+        },
+        "months": {
+          "items": {
+            "$ref": "#/$defs/MonthRange"
+          },
+          "type": "array"
+        },
+        "years": {
+          "items": {
+            "$ref": "#/$defs/YearRange"
+          },
+          "type": "array"
+        },
+        "location": {
+          "$ref": "#/$defs/Location"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "TimeRange": {
+      "properties": {
+        "StartMinute": {
+          "type": "integer"
+        },
+        "EndMinute": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "StartMinute",
+        "EndMinute"
+      ]
+    },
+    "URL": {
+      "properties": {
+        "Scheme": {
+          "type": "string"
+        },
+        "Opaque": {
+          "type": "string"
+        },
+        "User": {
+          "$ref": "#/$defs/Userinfo"
+        },
+        "Host": {
+          "type": "string"
+        },
+        "Path": {
+          "type": "string"
+        },
+        "RawPath": {
+          "type": "string"
+        },
+        "OmitHost": {
+          "type": "boolean"
+        },
+        "ForceQuery": {
+          "type": "boolean"
+        },
+        "RawQuery": {
+          "type": "string"
+        },
+        "Fragment": {
+          "type": "string"
+        },
+        "RawFragment": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Scheme",
+        "Opaque",
+        "User",
+        "Host",
+        "Path",
+        "RawPath",
+        "OmitHost",
+        "ForceQuery",
+        "RawQuery",
+        "Fragment",
+        "RawFragment"
+      ]
+    },
+    "Userinfo": {
+      "properties": {},
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "VictorOpsConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "api_key": {
+          "type": "string"
+        },
+        "api_key_file": {
+          "type": "string"
+        },
+        "api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "routing_key": {
+          "type": "string"
+        },
+        "message_type": {
+          "type": "string"
+        },
+        "state_message": {
+          "type": "string"
+        },
+        "entity_display_name": {
+          "type": "string"
+        },
+        "monitoring_tool": {
+          "type": "string"
+        },
+        "custom_fields": {
+          "patternProperties": {
+            ".*": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved",
+        "api_url",
+        "routing_key",
+        "message_type",
+        "state_message",
+        "entity_display_name",
+        "monitoring_tool"
+      ]
+    },
+    "WebexConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "message": {
+          "type": "string"
+        },
+        "room_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved",
+        "room_id"
+      ]
+    },
+    "WebhookConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "url": {
+          "$ref": "#/$defs/URL"
+        },
+        "max_alerts": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved",
+        "url",
+        "max_alerts"
+      ]
+    },
+    "WechatConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "api_secret": {
+          "type": "string"
+        },
+        "corp_id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "api_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "to_user": {
+          "type": "string"
+        },
+        "to_party": {
+          "type": "string"
+        },
+        "to_tag": {
+          "type": "string"
+        },
+        "agent_id": {
+          "type": "string"
+        },
+        "message_type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
+    },
+    "WeekdayRange": {
+      "properties": {
+        "Begin": {
+          "type": "integer"
+        },
+        "End": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Begin",
+        "End"
+      ]
+    },
+    "YearRange": {
+      "properties": {
+        "Begin": {
+          "type": "integer"
+        },
+        "End": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "Begin",
+        "End"
+      ]
+    }
+  }
+}
