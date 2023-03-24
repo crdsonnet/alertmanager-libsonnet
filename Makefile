@@ -1,6 +1,7 @@
 alertmanagerConfig/schema.json:
 	cd go && go run . > ../alertmanagerConfig/schema.json
 
+.PHONY: docs
 docs:
 	cd alertmanagerConfig && \
 	rm -rf docs/ && \

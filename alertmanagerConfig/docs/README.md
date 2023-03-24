@@ -1,21 +1,21 @@
 # package alertmanagerConfig
 
-`alertmanagerConfig` can generate config for [alertmanager](https://github.com/prometheus/alertmanager)
+`alertmanagerConfig` can generate config for [alertmanager](https://github.com/prometheus/alertmanager).
+
+Additional information about the configuration options can be found in the
+[official docs](https://prometheus.io/docs/alerting/latest/configuration/).
 
 
 ## Install
 
 ```
-jb install github.com/Duologic/alertmanagerConfig-libsonnet/alertmanagerConfig@master
+jb install github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig@master
 ```
 
 ## Usage
 
 ```jsonnet
-local alertmanagerConfig = import "github.com/Duologic/alertmanagerConfig-libsonnet/alertmanagerConfig/main.libsonnet";
-
-alertmanagerConfig.new(legacyImports=false)
-
+local alertmanagerConfig = import "github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet"
 ```
 
 ## Subpackages

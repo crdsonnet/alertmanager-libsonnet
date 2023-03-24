@@ -7,7 +7,7 @@ local schema =
     '$defs'+: {
       Route+: {
         properties+: {
-          routes+: { items: {} },
+          routes+: { items: {} },  // Remove recursive $ref to prevent infinite recursion.
         },
       },
     },
@@ -27,33 +27,45 @@ local parsed = crdsonnet.fromSchema(
   then parsed.alertmanagerConfig
   else parsed + '.alertmanagerConfig'
 )
-//+ (
-//  if render == 'dynamic'
-//  then import 'veneer.libsonnet'
-//  else importstr 'veneer.libsonnet'
-//)
 + (
   if render == 'dynamic'
-  then {
-    '#'::
-      d.pkg(
-        name='alertmanagerConfig',
-        url='github.com/Duologic/alertmanagerConfig-libsonnet/alertmanagerConfig',
-        help=|||
-          `alertmanagerConfig` can generate config for [alertmanager](https://github.com/prometheus/alertmanager)
-        |||,
-        filename=std.thisFile,
-      )
-      + d.package.withUsageTemplate(|||
-        local %(name)s = import "%(import)s";
+  then import 'veneer.libsonnet'
+  else importstr 'veneer.libsonnet'
+)
++ (
+  if render == 'dynamic'
+  then
+    {
+      '#'::
+        d.pkg(
+          name='alertmanagerConfig',
+          url='github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig',
+          help=|||
+            `alertmanagerConfig` can generate config for [alertmanager](https://github.com/prometheus/alertmanager).
 
-        alertmanagerConfig.new()
-      |||),
-  } + {
-    [key]+:
-      { '#':: d.package.newSub(key, '') }
-    for key in std.objectFields(parsed.alertmanagerConfig)
-    if std.isObject(parsed.alertmanagerConfig[key])
-  }
+            Additional information about the configuration options can be found in the
+            [official docs](https://prometheus.io/docs/alerting/latest/configuration/).
+          |||,
+          filename=std.thisFile,
+        ),
+      //+ d.package.withUsageTemplate(|||
+      //  local %(name)s = import "%(import)s";
+
+      //  alertmanagerConfig.new()
+      //|||),
+    } + {
+      [key]+:
+        { '#':: d.package.newSub(key, '') }
+      for key in std.objectFields(parsed.alertmanagerConfig)
+      if std.isObject(parsed.alertmanagerConfig[key])
+    }
+    + {
+      receivers+: {
+        [key]+:
+          { '#':: d.package.newSub(key, '') }
+        for key in std.objectFields(parsed.alertmanagerConfig.receivers)
+        if std.isObject(parsed.alertmanagerConfig.receivers[key])
+      },
+    }
   else ''  // don't bother with docs for static rendering
 )
