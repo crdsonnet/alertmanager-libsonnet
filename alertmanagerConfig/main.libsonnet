@@ -47,12 +47,26 @@ local parsed = crdsonnet.fromSchema(
             [official docs](https://prometheus.io/docs/alerting/latest/configuration/).
           |||,
           filename=std.thisFile,
-        ),
-      //+ d.package.withUsageTemplate(|||
-      //  local %(name)s = import "%(import)s";
+        )
+        + d.package.withUsageTemplate(|||
+          local %(name)s = import "%(import)s";
 
-      //  alertmanagerConfig.new()
-      //|||),
+          local testReceiver =
+            alertmanagerConfig.receivers.new('test')
+            + alertmanagerConfig.receivers.withSlackConfigs([
+              alertmanagerConfig.receivers.slack_configs.new('#general'),
+            ])
+            + alertmanagerConfig.receivers.withWebhookConfigs([
+              alertmanagerConfig.receivers.webhook_configs.new('http://localhost/hot/new/webhook'),
+            ]);
+
+          alertmanagerConfig.withRoute([
+            alertmanagerConfig.route.withReceiver(testReceiver.name),
+          ])
+          + alertmanagerConfig.withReceivers([
+            testReceiver,
+          ])
+        |||),
     } + {
       [key]+:
         { '#':: d.package.newSub(key, '') }

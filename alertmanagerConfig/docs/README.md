@@ -15,7 +15,24 @@ jb install github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig@master
 ## Usage
 
 ```jsonnet
-local alertmanagerConfig = import "github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet"
+local alertmanagerConfig = import "github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet";
+
+local testReceiver =
+  alertmanagerConfig.receivers.new('test')
+  + alertmanagerConfig.receivers.withSlackConfigs([
+    alertmanagerConfig.receivers.slack_configs.new('#general'),
+  ])
+  + alertmanagerConfig.receivers.withWebhookConfigs([
+    alertmanagerConfig.receivers.webhook_configs.new('http://localhost/hot/new/webhook'),
+  ]);
+
+alertmanagerConfig.withRoute([
+  alertmanagerConfig.route.withReceiver(testReceiver.name),
+])
++ alertmanagerConfig.withReceivers([
+  testReceiver,
+])
+
 ```
 
 ## Subpackages
