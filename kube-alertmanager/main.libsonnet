@@ -4,14 +4,20 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 
 {
-  '#':: d.pkg(
-    name='kubeAlertmanager',
-    url='github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager',
-    help=|||
-      `kubeAlertmanager` provides the manifests to configure Alertmanager instances on
-      Kubernetes.
-    |||
-  ),
+  '#'::
+    d.pkg(
+      name='kubeAlertmanager',
+      url='github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager',
+      help=|||
+        `kubeAlertmanager` provides the manifests to configure Alertmanager instances on
+        Kubernetes.
+      |||
+    )
+    + d.package.withUsageTemplate(|||
+      local %(name)s = import "%(import)s";
+
+      %(name)s.new()
+    |||),
 
   '#new'::
     d.func.new(

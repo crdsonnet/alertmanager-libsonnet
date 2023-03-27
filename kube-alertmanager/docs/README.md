@@ -13,7 +13,10 @@ jb install github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager@master
 ## Usage
 
 ```jsonnet
-local kubeAlertmanager = import "github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager"
+local kubeAlertmanager = import "github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager";
+
+kubeAlertmanager.new()
+
 ```
 
 ## Index
