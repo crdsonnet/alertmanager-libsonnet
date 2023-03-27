@@ -193,7 +193,7 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
   '#withLocalGossiping'::
     d.func.new(
       |||
-        `withLocalGossiping` sets up gossiping for the local replicas
+        `withLocalGossiping` sets up gossiping for the local replicas.
         Should not be used in combination with `withGossiping`.
       |||,
       args=[

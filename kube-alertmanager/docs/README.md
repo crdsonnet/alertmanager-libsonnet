@@ -101,7 +101,7 @@ be used to expose all Pod IPs for inter-cluster communication.
 withLocalGossiping(namespace, dnsSuffix='local', gossipPort=9094)
 ```
 
-`withLocalGossiping` sets up gossiping for the local replicas
+`withLocalGossiping` sets up gossiping for the local replicas.
 Should not be used in combination with `withGossiping`.
 
 
@@ -133,6 +133,8 @@ connectivity.
 ref: https://github.com/grafana/jsonnet-libs/tree/master/prometheus
 
 Example `alertmanagers` object:
+
+```jsonnet
 alertmanagers: {
   alertmanager_name: {
     replicas: 2,
@@ -142,4 +144,5 @@ alertmanagers: {
     gossip_port: 9094,
   },
 }
+```
 

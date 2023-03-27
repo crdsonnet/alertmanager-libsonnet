@@ -36,6 +36,8 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
         ref: https://github.com/grafana/jsonnet-libs/tree/master/prometheus
 
         Example `alertmanagers` object:
+
+        ```jsonnet
         alertmanagers: {
           alertmanager_name: {
             replicas: 2,
@@ -45,6 +47,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
             gossip_port: 9094,
           },
         }
+        ```
       |||,
       args=[d.arg('alertmanagers', d.T.object)],
     ),
