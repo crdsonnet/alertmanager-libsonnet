@@ -26,6 +26,8 @@
         ),
   },
 
+  getCommonTemplates(): (importstr 'commonTemplates.tmpl'),
+
   receivers+: {
     new(name):
       self.withName(name),
