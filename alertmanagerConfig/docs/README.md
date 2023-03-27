@@ -9,13 +9,13 @@ Additional information about the configuration options can be found in the
 ## Install
 
 ```
-jb install github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig@master
+jb install github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig@master
 ```
 
 ## Usage
 
 ```jsonnet
-local alertmanagerConfig = import "github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet";
+local alertmanagerConfig = import "github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet";
 
 local testReceiver =
   alertmanagerConfig.receivers.new('test')

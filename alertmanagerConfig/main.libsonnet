@@ -39,7 +39,7 @@ local parsed = crdsonnet.fromSchema(
       '#'::
         d.pkg(
           name='alertmanagerConfig',
-          url='github.com/Duologic/alertmanager-libsonnet/alertmanagerConfig',
+          url='github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig',
           help=|||
             `alertmanagerConfig` can generate config for [alertmanager](https://github.com/prometheus/alertmanager).
 
