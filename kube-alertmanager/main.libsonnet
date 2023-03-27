@@ -11,7 +11,8 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
       help=|||
         `kubeAlertmanager` provides the manifests to configure Alertmanager instances on
         Kubernetes.
-      |||
+      |||,
+      filename=std.thisFile,
     )
     + d.package.withUsageTemplate(|||
       local %(name)s = import "%(import)s";
