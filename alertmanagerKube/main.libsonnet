@@ -6,10 +6,10 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 {
   '#'::
     d.pkg(
-      name='kubeAlertmanager',
-      url='github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager',
+      name='alertmanagerKube',
+      url='github.com/crdsonnet/alertmanager-libsonnet/alertmanagerKube',
       help=|||
-        `kubeAlertmanager` provides the manifests to configure Alertmanager instances on
+        `alertmanagerKube` provides the manifests to configure Alertmanager instances on
         Kubernetes.
       |||,
       filename=std.thisFile,
@@ -171,8 +171,8 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
         Example:
 
         ```jsonnet
-        kubeAlertmanager.new()
-        + kubeAlertmanager.withExternalUrl(
+        alertmanagerKube.new()
+        + alertmanagerKube.withExternalUrl(
           'http://alertmanager.%s.svc.%s' % [
             namespace,
             dnsSuffix,

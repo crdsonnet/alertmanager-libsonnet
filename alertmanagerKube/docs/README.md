@@ -1,21 +1,21 @@
-# package kubeAlertmanager
+# package alertmanagerKube
 
-`kubeAlertmanager` provides the manifests to configure Alertmanager instances on
+`alertmanagerKube` provides the manifests to configure Alertmanager instances on
 Kubernetes.
 
 
 ## Install
 
 ```
-jb install github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager@master
+jb install github.com/crdsonnet/alertmanager-libsonnet/alertmanagerKube@master
 ```
 
 ## Usage
 
 ```jsonnet
-local kubeAlertmanager = import "github.com/crdsonnet/alertmanager-libsonnet/kube-alertmanager/main.libsonnet";
+local alertmanagerKube = import "github.com/crdsonnet/alertmanager-libsonnet/alertmanagerKube/main.libsonnet";
 
-kubeAlertmanager.new()
+alertmanagerKube.new()
 
 ```
 
@@ -65,8 +65,8 @@ withExternalUrl(config)
 Example:
 
 ```jsonnet
-kubeAlertmanager.new()
-+ kubeAlertmanager.withExternalUrl(
+alertmanagerKube.new()
++ alertmanagerKube.withExternalUrl(
   'http://alertmanager.%s.svc.%s' % [
     namespace,
     dnsSuffix,

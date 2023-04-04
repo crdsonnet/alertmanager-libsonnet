@@ -3,7 +3,7 @@ alertmanagerConfig/schema.json:
 
 .PHONY: docs
 docs:
-	@cd kube-alertmanager && \
+	@cd alertmanagerKube && \
 	rm -rf docs/ && \
 	jsonnet -J vendor -S -c -m docs/ \
 			--exec "(import 'doc-util/main.libsonnet').render(import 'main.libsonnet')"
