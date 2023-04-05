@@ -26,25 +26,27 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
   '#buildPeers'::
     d.func.new(
       |||
-        `buildPeers` constructs an array of alertmanager peers. Together
-        with `withAlertmanagers` in the prometheus jsonnetlib, this is a
-        building block for configuring one global alertmanager
-        über-cluster spread over multiple kubernetes clusters. This
-        requires all those clusters to have inter-cluster network
+        `buildPeers` constructs an array of alertmanager peers. Together with
+        `buildAlertmanagers` in the prometheus-libsonnet, this is a building block for
+        configuring one global alertmanager über-cluster spread over multiple kubernetes
+        clusters. This requires all those clusters to have inter-cluster network
         connectivity.
-
-        ref: https://github.com/grafana/jsonnet-libs/tree/master/prometheus
 
         Example `alertmanagers` object:
 
         ```jsonnet
         alertmanagers: {
           alertmanager_name: {
-            replicas: 2,
             namespace: 'alertmanager',
-            cluster_name: 'cluster',
-            cluster_dns_tld: 'local.',
             gossip_port: 9094,
+            replicas: 2,
+            cluster_name: 'us-central1',
+            cluster_dns_tld: 'local.',
+
+            // used in `buildAlertmanagers`
+            path: '/alertmanager/',
+            port: 9093,
+            global: true,
           },
         }
         ```

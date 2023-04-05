@@ -3,6 +3,8 @@
 `alertmanagerKube` provides the manifests to configure Alertmanager instances on
 Kubernetes.
 
+This library is based on https://github.com/grafana/jsonnet-libs/tree/master/alertmanager
+
 
 ## Install
 
@@ -39,7 +41,7 @@ alertmanagerKube.new()
 new(image='prom/alertmanager:v0.25.0', watchImage='weaveworks/watch:master-0c44bf6', replicas=1, port=9093)
 ```
 
-`new` initializes an alertmanager instance. Note that `replicas` only creates
+`new` initializes an Alertmanager instance. Note that `replicas` only creates
 additional instances, use `withGossiping` or `withLocalGossiping` to set it up as
 a highly available cluster.
 
@@ -60,7 +62,8 @@ This can be constructed with the alertmanagerConfig library.
 withExternalUrl(config)
 ```
 
-`withExternalUrl` configures the external URL through which this 
+`withExternalUrl` configures the external URL through which this instance will be
+reachable.
 
 Example:
 
@@ -126,25 +129,27 @@ buildPeer(index, namespace, clusterName, dnsSuffix, gossipPort)
 buildPeers(alertmanagers)
 ```
 
-`buildPeers` constructs an array of alertmanager peers. Together
-with `withAlertmanagers` in the prometheus jsonnetlib, this is a
-building block for configuring one global alertmanager
-über-cluster spread over multiple kubernetes clusters. This
-requires all those clusters to have inter-cluster network
+`buildPeers` constructs an array of alertmanager peers. Together with
+`buildAlertmanagers` in the prometheus-libsonnet, this is a building block for
+configuring one global alertmanager über-cluster spread over multiple kubernetes
+clusters. This requires all those clusters to have inter-cluster network
 connectivity.
-
-ref: https://github.com/grafana/jsonnet-libs/tree/master/prometheus
 
 Example `alertmanagers` object:
 
 ```jsonnet
 alertmanagers: {
   alertmanager_name: {
-    replicas: 2,
     namespace: 'alertmanager',
-    cluster_name: 'cluster',
-    cluster_dns_tld: 'local.',
     gossip_port: 9094,
+    replicas: 2,
+    cluster_name: 'us-central1',
+    cluster_dns_tld: 'local.',
+
+    // used in `buildAlertmanagers`
+    path: '/alertmanager/',
+    port: 9093,
+    global: true,
   },
 }
 ```

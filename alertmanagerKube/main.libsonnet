@@ -1,4 +1,3 @@
-// Library based on https://github.com/grafana/jsonnet-libs/tree/master/alertmanager
 local alertmanagerConfig = import 'github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet';
 local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
@@ -11,6 +10,8 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
       help=|||
         `alertmanagerKube` provides the manifests to configure Alertmanager instances on
         Kubernetes.
+
+        This library is based on https://github.com/grafana/jsonnet-libs/tree/master/alertmanager
       |||,
       filename=std.thisFile,
     )
@@ -23,7 +24,7 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
   '#new'::
     d.func.new(
       |||
-        `new` initializes an alertmanager instance. Note that `replicas` only creates
+        `new` initializes an Alertmanager instance. Note that `replicas` only creates
         additional instances, use `withGossiping` or `withLocalGossiping` to set it up as
         a highly available cluster.
       |||,
@@ -44,6 +45,7 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 
     path:: '/alertmanager/',
     config_path:: '/etc/alertmanager/config',
+    config_file:: 'alertmanager.yml',
     config:: alertmanagerConfig.withTemplates([
       '/etc/alertmanager/*.tmpl',
       '%s/templates.tmpl' % this.config_path,
@@ -53,7 +55,7 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
     config_map:
       configMap.new('alertmanager-config')
       + configMap.withData({
-        'alertmanager.yml': k.util.manifestYaml(this.config),
+        [this.config_file]: k.util.manifestYaml(this.config),
         'templates.tmpl': alertmanagerConfig.getCommonTemplates(),
       }),
 
@@ -66,7 +68,7 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
       ])
       + container.withArgs([
         '--log.level=info',
-        '--config.file=%s/alertloki_read_gcom_keymanager.yml' % self.config_path,
+        '--config.file=%s' % std.join('/', [self.config_path, self.config_file]),
         '--web.listen-address=:%s' % port,
         '--storage.path=/alertmanager',
       ])
@@ -74,7 +76,7 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
         container.envType.fromFieldPath('POD_IP', 'status.podIP'),
       ])
       + container.withVolumeMountsMixin(
-        volumeMount.new('alertmanager-data', '/alertmanager')
+        volumeMount.new(self.pvc.metadata.name, '/alertmanager')
       )
       + container.resources.withRequests({
         cpu: '10m',
@@ -166,7 +168,8 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
   '#withExternalUrl'::
     d.func.new(
       |||
-        `withExternalUrl` configures the external URL through which this 
+        `withExternalUrl` configures the external URL through which this instance will be
+        reachable.
 
         Example:
 
