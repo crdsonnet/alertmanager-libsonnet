@@ -46,7 +46,6 @@ alertmanagerConfig.withRoute([
 
 ## Index
 
-* [`fn getCommonTemplates()`](#fn-getcommontemplates)
 * [`fn withGlobal(value)`](#fn-withglobal)
 * [`fn withGlobalMixin(value)`](#fn-withglobalmixin)
 * [`fn withInhibitRules(value)`](#fn-withinhibitrules)
@@ -62,19 +61,12 @@ alertmanagerConfig.withRoute([
 * [`fn withTimeIntervals(value)`](#fn-withtimeintervals)
 * [`fn withTimeIntervalsMixin(value)`](#fn-withtimeintervalsmixin)
 * [`obj util`](#obj-util)
+  * [`fn getCommonTemplates()`](#fn-utilgetcommontemplates)
   * [`fn getReceiverNamesFromRoute(route)`](#fn-utilgetreceivernamesfromroute)
   * [`fn getReceiversForRoute(receivers, route)`](#fn-utilgetreceiversforroute)
   * [`fn getUndefinedReceiversFromRoute(receivers, route)`](#fn-utilgetundefinedreceiversfromroute)
 
 ## Fields
-
-### fn getCommonTemplates
-
-```ts
-getCommonTemplates()
-```
-
-`getCommonTemplates` provides a set of common templates to use with Alertmanager.
 
 ### fn withGlobal
 
@@ -190,6 +182,14 @@ withTimeIntervalsMixin(value)
 
 ### obj util
 
+
+#### fn util.getCommonTemplates
+
+```ts
+getCommonTemplates()
+```
+
+`getCommonTemplates` provides a set of common templates to use with Alertmanager.
 
 #### fn util.getReceiverNamesFromRoute
 

@@ -45,12 +45,12 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
           function(r) std.member(receiverNamesInRoute, r.name),
           receivers
         ),
-  },
 
-  '#getCommonTemplates':: d.fn(
-    '`getCommonTemplates` provides a set of common templates to use with Alertmanager.',
-  ),
-  getCommonTemplates(): (importstr 'commonTemplates.tmpl'),
+    '#getCommonTemplates':: d.fn(
+      '`getCommonTemplates` provides a set of common templates to use with Alertmanager.',
+    ),
+    getCommonTemplates(): (importstr 'commonTemplates.tmpl'),
+  },
 
   receiver+: {
     '#new':: d.fn(
@@ -71,7 +71,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 
     slack+: {
       '#new':: d.fn(
-        '`new` creates an Slack channel config. Depends on contents of `getCommonTemplates()` to be available.',
+        '`new` creates an Slack channel config. Depends on contents of `util.getCommonTemplates()` to be available.',
         args=[d.arg('channel', d.T.string)]
       ),
       new(channel):

@@ -155,7 +155,7 @@
 new(channel)
 ```
 
-`new` creates an Slack channel config. Depends on contents of `getCommonTemplates()` to be available.
+`new` creates an Slack channel config. Depends on contents of `util.getCommonTemplates()` to be available.
 
 ### fn withActions
 
