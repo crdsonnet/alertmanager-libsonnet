@@ -1,30 +1,14 @@
-# package pagerduty_configs
+# webhook
 
 
 
 ## Index
 
-* [`fn withClass(value)`](#fn-withclass)
-* [`fn withClient(value)`](#fn-withclient)
-* [`fn withClientUrl(value)`](#fn-withclienturl)
-* [`fn withComponent(value)`](#fn-withcomponent)
-* [`fn withDescription(value)`](#fn-withdescription)
-* [`fn withDetails(value)`](#fn-withdetails)
-* [`fn withDetailsMixin(value)`](#fn-withdetailsmixin)
-* [`fn withGroup(value)`](#fn-withgroup)
+* [`fn new(url)`](#fn-new)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
-* [`fn withImages(value)`](#fn-withimages)
-* [`fn withImagesMixin(value)`](#fn-withimagesmixin)
-* [`fn withLinks(value)`](#fn-withlinks)
-* [`fn withLinksMixin(value)`](#fn-withlinksmixin)
-* [`fn withRoutingKey(value)`](#fn-withroutingkey)
-* [`fn withRoutingKeyFile(value)`](#fn-withroutingkeyfile)
+* [`fn withMaxAlerts(value)`](#fn-withmaxalerts)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withServiceKey(value)`](#fn-withservicekey)
-* [`fn withServiceKeyFile(value)`](#fn-withservicekeyfile)
-* [`fn withSeverity(value)`](#fn-withseverity)
-* [`fn withSource(value)`](#fn-withsource)
 * [`fn withUrl(value)`](#fn-withurl)
 * [`fn withUrlMixin(value)`](#fn-withurlmixin)
 * [`obj http_config`](#obj-http_config)
@@ -105,13 +89,6 @@
     * [`fn withMaxVersion(value)`](#fn-http_configtls_configwithmaxversion)
     * [`fn withMinVersion(value)`](#fn-http_configtls_configwithminversion)
     * [`fn withServerName(value)`](#fn-http_configtls_configwithservername)
-* [`obj images`](#obj-images)
-  * [`fn withAlt(value)`](#fn-imageswithalt)
-  * [`fn withHref(value)`](#fn-imageswithhref)
-  * [`fn withSrc(value)`](#fn-imageswithsrc)
-* [`obj links`](#obj-links)
-  * [`fn withHref(value)`](#fn-linkswithhref)
-  * [`fn withText(value)`](#fn-linkswithtext)
 * [`obj url`](#obj-url)
   * [`fn withForceQuery(value)`](#fn-urlwithforcequery)
   * [`fn withFragment(value)`](#fn-urlwithfragment)
@@ -128,69 +105,13 @@
 
 ## Fields
 
-### fn withClass
+### fn new
 
 ```ts
-withClass(value)
+new(url)
 ```
 
-
-
-### fn withClient
-
-```ts
-withClient(value)
-```
-
-
-
-### fn withClientUrl
-
-```ts
-withClientUrl(value)
-```
-
-
-
-### fn withComponent
-
-```ts
-withComponent(value)
-```
-
-
-
-### fn withDescription
-
-```ts
-withDescription(value)
-```
-
-
-
-### fn withDetails
-
-```ts
-withDetails(value)
-```
-
-
-
-### fn withDetailsMixin
-
-```ts
-withDetailsMixin(value)
-```
-
-
-
-### fn withGroup
-
-```ts
-withGroup(value)
-```
-
-
+`new` creates a webhook config.
 
 ### fn withHttpConfig
 
@@ -208,50 +129,10 @@ withHttpConfigMixin(value)
 
 
 
-### fn withImages
+### fn withMaxAlerts
 
 ```ts
-withImages(value)
-```
-
-
-
-### fn withImagesMixin
-
-```ts
-withImagesMixin(value)
-```
-
-
-
-### fn withLinks
-
-```ts
-withLinks(value)
-```
-
-
-
-### fn withLinksMixin
-
-```ts
-withLinksMixin(value)
-```
-
-
-
-### fn withRoutingKey
-
-```ts
-withRoutingKey(value)
-```
-
-
-
-### fn withRoutingKeyFile
-
-```ts
-withRoutingKeyFile(value)
+withMaxAlerts(value)
 ```
 
 
@@ -260,38 +141,6 @@ withRoutingKeyFile(value)
 
 ```ts
 withSendResolved(value)
-```
-
-
-
-### fn withServiceKey
-
-```ts
-withServiceKey(value)
-```
-
-
-
-### fn withServiceKeyFile
-
-```ts
-withServiceKeyFile(value)
-```
-
-
-
-### fn withSeverity
-
-```ts
-withSeverity(value)
-```
-
-
-
-### fn withSource
-
-```ts
-withSource(value)
 ```
 
 
@@ -892,52 +741,6 @@ withMinVersion(value)
 
 ```ts
 withServerName(value)
-```
-
-
-
-### obj images
-
-
-#### fn images.withAlt
-
-```ts
-withAlt(value)
-```
-
-
-
-#### fn images.withHref
-
-```ts
-withHref(value)
-```
-
-
-
-#### fn images.withSrc
-
-```ts
-withSrc(value)
-```
-
-
-
-### obj links
-
-
-#### fn links.withHref
-
-```ts
-withHref(value)
-```
-
-
-
-#### fn links.withText
-
-```ts
-withText(value)
 ```
 
 

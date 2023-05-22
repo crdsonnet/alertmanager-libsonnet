@@ -52,12 +52,12 @@ local parsed = crdsonnet.fromSchema(
           local %(name)s = import "%(import)s";
 
           local testReceiver =
-            alertmanagerConfig.receivers.new('test')
-            + alertmanagerConfig.receivers.withSlackConfigs([
-              alertmanagerConfig.receivers.slack_configs.new('#general'),
+            alertmanagerConfig.receiver.new('test')
+            + alertmanagerConfig.receiver.withSlackConfigs([
+              alertmanagerConfig.receiver.slack.new('#general'),
             ])
-            + alertmanagerConfig.receivers.withWebhookConfigs([
-              alertmanagerConfig.receivers.webhook_configs.new('http://localhost/hot/new/webhook'),
+            + alertmanagerConfig.receiver.withWebhookConfigs([
+              alertmanagerConfig.receiver.webhook.new('http://localhost/hot/new/webhook'),
             ]);
 
           alertmanagerConfig.withRoute([
@@ -74,12 +74,92 @@ local parsed = crdsonnet.fromSchema(
       if std.isObject(parsed.alertmanagerConfig[key])
     }
     + {
-      receivers+: {
-        [key]+:
-          { '#':: d.package.newSub(key, '') }
-        for key in std.objectFields(parsed.alertmanagerConfig.receivers)
-        if std.isObject(parsed.alertmanagerConfig.receivers[key])
+      // strip `_configs` from receiver name
+      local receiverName(key) =
+        local s = std.reverse(std.split(key, '_'));
+        if s[0] == 'configs'
+        then std.join('_', std.reverse(s[1:]))
+        else key
+      ,
+
+      receivers:: {},
+      receiver+:
+        {
+          '#':: d.package.newSub('receiver', ''),
+        }
+        + {
+          [receiverName(key)]+:
+            parsed.alertmanagerConfig.receivers[key]
+            + { '#':: d.package.newSub(receiverName(key), '') }
+          for key in std.objectFields(parsed.alertmanagerConfig.receivers)
+          if std.isObject(parsed.alertmanagerConfig.receivers[key])
+        }
+        + {
+          [key]+: parsed.alertmanagerConfig.receivers[key]
+          for key in std.objectFields(parsed.alertmanagerConfig.receivers)
+          if std.isFunction(parsed.alertmanagerConfig.receivers[key])
+        }
+        + {
+          ['#' + key]+: parsed.alertmanagerConfig.receivers['#' + key]
+          for key in std.objectFieldsAll(parsed.alertmanagerConfig.receivers)
+          if std.isFunction(parsed.alertmanagerConfig.receivers[key])
+        },
+    }
+    + {
+      route+: {
+        // Deprecated, remove from docs
+        '#withMatch':: {},
+        '#withMatchMixin':: {},
+        '#withMatchRe':: {},
+        '#withMatchReMixin':: {},
+
+        // Use string format instead of object
+        '#matchers': {},
+
+        '#withMatchers'+:: d.func.withHelp(|||
+          `withMatchers` accepts an array of matchers.
+
+          [See docs](https://prometheus.io/docs/alerting/latest/configuration/#matcher)
+          for more information.
+        |||),
       },
+
+      inhibit_rules:: {},
+      inhibit_rule:
+        super.inhibit_rules
+        + {
+          '#':: d.package.newSub('inhibit_rule', ''),
+
+          // Deprecated, remove from docs
+          '#withSourceMatch':: {},
+          '#withSourceMatchMixin':: {},
+          '#withSourceMatchRe':: {},
+          '#withSourceMatchReMixin':: {},
+          '#withTargetMatch':: {},
+          '#withTargetMatchMixin':: {},
+          '#withTargetMatchRe':: {},
+          '#withTargetMatchReMixin':: {},
+
+          // Use string format instead of object
+          '#source_matchers': {},
+          '#target_matchers': {},
+
+          '#withEqual'+:: d.func.withHelp(|||
+            `withEqual` accepts an array of label names.
+          |||),
+          '#withSourceMatchers'+:: d.func.withHelp(|||
+            `withSourceMatchers` accepts an array of matchers.
+
+            [See docs](https://prometheus.io/docs/alerting/latest/configuration/#matcher)
+            for more information.
+          |||),
+          '#withTargetMatchers'+:: d.func.withHelp(|||
+            `withTargetMatchers` accepts an array of matchers.
+
+            [See docs](https://prometheus.io/docs/alerting/latest/configuration/#matcher)
+            for more information.
+          |||),
+        },
     }
   else ''  // don't bother with docs for static rendering
 )

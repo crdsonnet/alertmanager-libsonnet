@@ -1,23 +1,73 @@
-# package pushover_configs
+# slack
 
 
 
 ## Index
 
-* [`fn withExpire(value)`](#fn-withexpire)
-* [`fn withHtml(value)`](#fn-withhtml)
+* [`fn new(channel)`](#fn-new)
+* [`fn withActions(value)`](#fn-withactions)
+* [`fn withActionsMixin(value)`](#fn-withactionsmixin)
+* [`fn withApiUrl(value)`](#fn-withapiurl)
+* [`fn withApiUrlFile(value)`](#fn-withapiurlfile)
+* [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
+* [`fn withButtonMixin(text, url)`](#fn-withbuttonmixin)
+* [`fn withCallbackId(value)`](#fn-withcallbackid)
+* [`fn withChannel(value)`](#fn-withchannel)
+* [`fn withColor(value)`](#fn-withcolor)
+* [`fn withDashboardButton(icon=":grafana:")`](#fn-withdashboardbutton)
+* [`fn withFallback(value)`](#fn-withfallback)
+* [`fn withFields(value)`](#fn-withfields)
+* [`fn withFieldsMixin(value)`](#fn-withfieldsmixin)
+* [`fn withFooter(value)`](#fn-withfooter)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
-* [`fn withMessage(value)`](#fn-withmessage)
-* [`fn withPriority(value)`](#fn-withpriority)
-* [`fn withRetry(value)`](#fn-withretry)
+* [`fn withIconEmoji(value)`](#fn-withiconemoji)
+* [`fn withIconUrl(value)`](#fn-withiconurl)
+* [`fn withImageUrl(value)`](#fn-withimageurl)
+* [`fn withLinkNames(value)`](#fn-withlinknames)
+* [`fn withLogsButton(icon=":lokii:")`](#fn-withlogsbutton)
+* [`fn withMrkdwnIn(value)`](#fn-withmrkdwnin)
+* [`fn withMrkdwnInMixin(value)`](#fn-withmrkdwninmixin)
+* [`fn withPretext(value)`](#fn-withpretext)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withSound(value)`](#fn-withsound)
+* [`fn withShortFields(value)`](#fn-withshortfields)
+* [`fn withText(value)`](#fn-withtext)
+* [`fn withThumbUrl(value)`](#fn-withthumburl)
 * [`fn withTitle(value)`](#fn-withtitle)
-* [`fn withToken(value)`](#fn-withtoken)
-* [`fn withUrl(value)`](#fn-withurl)
-* [`fn withUrlTitle(value)`](#fn-withurltitle)
-* [`fn withUserKey(value)`](#fn-withuserkey)
+* [`fn withTitleLink(value)`](#fn-withtitlelink)
+* [`fn withUsername(value)`](#fn-withusername)
+* [`obj actions`](#obj-actions)
+  * [`fn newButton(text, url)`](#fn-actionsnewbutton)
+  * [`fn withConfirm(value)`](#fn-actionswithconfirm)
+  * [`fn withConfirmMixin(value)`](#fn-actionswithconfirmmixin)
+  * [`fn withName(value)`](#fn-actionswithname)
+  * [`fn withStyle(value)`](#fn-actionswithstyle)
+  * [`fn withText(value)`](#fn-actionswithtext)
+  * [`fn withType(value)`](#fn-actionswithtype)
+  * [`fn withUrl(value)`](#fn-actionswithurl)
+  * [`fn withValue(value)`](#fn-actionswithvalue)
+  * [`obj confirm`](#obj-actionsconfirm)
+    * [`fn withDismissText(value)`](#fn-actionsconfirmwithdismisstext)
+    * [`fn withOkText(value)`](#fn-actionsconfirmwithoktext)
+    * [`fn withText(value)`](#fn-actionsconfirmwithtext)
+    * [`fn withTitle(value)`](#fn-actionsconfirmwithtitle)
+* [`obj api_url`](#obj-api_url)
+  * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
+  * [`fn withFragment(value)`](#fn-api_urlwithfragment)
+  * [`fn withHost(value)`](#fn-api_urlwithhost)
+  * [`fn withOmitHost(value)`](#fn-api_urlwithomithost)
+  * [`fn withOpaque(value)`](#fn-api_urlwithopaque)
+  * [`fn withPath(value)`](#fn-api_urlwithpath)
+  * [`fn withRawFragment(value)`](#fn-api_urlwithrawfragment)
+  * [`fn withRawPath(value)`](#fn-api_urlwithrawpath)
+  * [`fn withRawQuery(value)`](#fn-api_urlwithrawquery)
+  * [`fn withScheme(value)`](#fn-api_urlwithscheme)
+  * [`fn withUser(value)`](#fn-api_urlwithuser)
+  * [`fn withUserMixin(value)`](#fn-api_urlwithusermixin)
+* [`obj fields`](#obj-fields)
+  * [`fn withShort(value)`](#fn-fieldswithshort)
+  * [`fn withTitle(value)`](#fn-fieldswithtitle)
+  * [`fn withValue(value)`](#fn-fieldswithvalue)
 * [`obj http_config`](#obj-http_config)
   * [`fn withAuthorization(value)`](#fn-http_configwithauthorization)
   * [`fn withAuthorizationMixin(value)`](#fn-http_configwithauthorizationmixin)
@@ -99,18 +149,122 @@
 
 ## Fields
 
-### fn withExpire
+### fn new
 
 ```ts
-withExpire(value)
+new(channel)
+```
+
+`new` creates an Slack channel config. Depends on contents of `getCommonTemplates()` to be available.
+
+### fn withActions
+
+```ts
+withActions(value)
 ```
 
 
 
-### fn withHtml
+### fn withActionsMixin
 
 ```ts
-withHtml(value)
+withActionsMixin(value)
+```
+
+
+
+### fn withApiUrl
+
+```ts
+withApiUrl(value)
+```
+
+
+
+### fn withApiUrlFile
+
+```ts
+withApiUrlFile(value)
+```
+
+
+
+### fn withApiUrlMixin
+
+```ts
+withApiUrlMixin(value)
+```
+
+
+
+### fn withButtonMixin
+
+```ts
+withButtonMixin(text, url)
+```
+
+`withButtonMixin` adds a generic button with a link.
+
+### fn withCallbackId
+
+```ts
+withCallbackId(value)
+```
+
+
+
+### fn withChannel
+
+```ts
+withChannel(value)
+```
+
+
+
+### fn withColor
+
+```ts
+withColor(value)
+```
+
+
+
+### fn withDashboardButton
+
+```ts
+withDashboardButton(icon=":grafana:")
+```
+
+`withDashboardButton` adds a dashboard button.
+
+### fn withFallback
+
+```ts
+withFallback(value)
+```
+
+
+
+### fn withFields
+
+```ts
+withFields(value)
+```
+
+
+
+### fn withFieldsMixin
+
+```ts
+withFieldsMixin(value)
+```
+
+
+
+### fn withFooter
+
+```ts
+withFooter(value)
 ```
 
 
@@ -131,26 +285,66 @@ withHttpConfigMixin(value)
 
 
 
-### fn withMessage
+### fn withIconEmoji
 
 ```ts
-withMessage(value)
+withIconEmoji(value)
 ```
 
 
 
-### fn withPriority
+### fn withIconUrl
 
 ```ts
-withPriority(value)
+withIconUrl(value)
 ```
 
 
 
-### fn withRetry
+### fn withImageUrl
 
 ```ts
-withRetry(value)
+withImageUrl(value)
+```
+
+
+
+### fn withLinkNames
+
+```ts
+withLinkNames(value)
+```
+
+
+
+### fn withLogsButton
+
+```ts
+withLogsButton(icon=":lokii:")
+```
+
+`withLogsButton` adds a logs button.
+
+### fn withMrkdwnIn
+
+```ts
+withMrkdwnIn(value)
+```
+
+
+
+### fn withMrkdwnInMixin
+
+```ts
+withMrkdwnInMixin(value)
+```
+
+
+
+### fn withPretext
+
+```ts
+withPretext(value)
 ```
 
 
@@ -163,10 +357,26 @@ withSendResolved(value)
 
 
 
-### fn withSound
+### fn withShortFields
 
 ```ts
-withSound(value)
+withShortFields(value)
+```
+
+
+
+### fn withText
+
+```ts
+withText(value)
+```
+
+
+
+### fn withThumbUrl
+
+```ts
+withThumbUrl(value)
 ```
 
 
@@ -179,15 +389,82 @@ withTitle(value)
 
 
 
-### fn withToken
+### fn withTitleLink
 
 ```ts
-withToken(value)
+withTitleLink(value)
 ```
 
 
 
-### fn withUrl
+### fn withUsername
+
+```ts
+withUsername(value)
+```
+
+
+
+### obj actions
+
+
+#### fn actions.newButton
+
+```ts
+newButton(text, url)
+```
+
+`newButton` creates a generic buton with a link.
+
+#### fn actions.withConfirm
+
+```ts
+withConfirm(value)
+```
+
+
+
+#### fn actions.withConfirmMixin
+
+```ts
+withConfirmMixin(value)
+```
+
+
+
+#### fn actions.withName
+
+```ts
+withName(value)
+```
+
+
+
+#### fn actions.withStyle
+
+```ts
+withStyle(value)
+```
+
+
+
+#### fn actions.withText
+
+```ts
+withText(value)
+```
+
+
+
+#### fn actions.withType
+
+```ts
+withType(value)
+```
+
+
+
+#### fn actions.withUrl
 
 ```ts
 withUrl(value)
@@ -195,18 +472,171 @@ withUrl(value)
 
 
 
-### fn withUrlTitle
+#### fn actions.withValue
 
 ```ts
-withUrlTitle(value)
+withValue(value)
 ```
 
 
 
-### fn withUserKey
+#### obj actions.confirm
+
+
+##### fn actions.confirm.withDismissText
 
 ```ts
-withUserKey(value)
+withDismissText(value)
+```
+
+
+
+##### fn actions.confirm.withOkText
+
+```ts
+withOkText(value)
+```
+
+
+
+##### fn actions.confirm.withText
+
+```ts
+withText(value)
+```
+
+
+
+##### fn actions.confirm.withTitle
+
+```ts
+withTitle(value)
+```
+
+
+
+### obj api_url
+
+
+#### fn api_url.withForceQuery
+
+```ts
+withForceQuery(value)
+```
+
+
+
+#### fn api_url.withFragment
+
+```ts
+withFragment(value)
+```
+
+
+
+#### fn api_url.withHost
+
+```ts
+withHost(value)
+```
+
+
+
+#### fn api_url.withOmitHost
+
+```ts
+withOmitHost(value)
+```
+
+
+
+#### fn api_url.withOpaque
+
+```ts
+withOpaque(value)
+```
+
+
+
+#### fn api_url.withPath
+
+```ts
+withPath(value)
+```
+
+
+
+#### fn api_url.withRawFragment
+
+```ts
+withRawFragment(value)
+```
+
+
+
+#### fn api_url.withRawPath
+
+```ts
+withRawPath(value)
+```
+
+
+
+#### fn api_url.withRawQuery
+
+```ts
+withRawQuery(value)
+```
+
+
+
+#### fn api_url.withScheme
+
+```ts
+withScheme(value)
+```
+
+
+
+#### fn api_url.withUser
+
+```ts
+withUser(value)
+```
+
+
+
+#### fn api_url.withUserMixin
+
+```ts
+withUserMixin(value)
+```
+
+
+
+### obj fields
+
+
+#### fn fields.withShort
+
+```ts
+withShort(value)
+```
+
+
+
+#### fn fields.withTitle
+
+```ts
+withTitle(value)
+```
+
+
+
+#### fn fields.withValue
+
+```ts
+withValue(value)
 ```
 
 

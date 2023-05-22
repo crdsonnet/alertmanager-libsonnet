@@ -1,4 +1,4 @@
-# package alertmanagerConfig
+# alertmanagerConfig
 
 `alertmanagerConfig` can generate config for [alertmanager](https://github.com/prometheus/alertmanager).
 
@@ -18,12 +18,12 @@ jb install github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig@master
 local alertmanagerConfig = import "github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet";
 
 local testReceiver =
-  alertmanagerConfig.receivers.new('test')
-  + alertmanagerConfig.receivers.withSlackConfigs([
-    alertmanagerConfig.receivers.slack_configs.new('#general'),
+  alertmanagerConfig.receiver.new('test')
+  + alertmanagerConfig.receiver.withSlackConfigs([
+    alertmanagerConfig.receiver.slack.new('#general'),
   ])
-  + alertmanagerConfig.receivers.withWebhookConfigs([
-    alertmanagerConfig.receivers.webhook_configs.new('http://localhost/hot/new/webhook'),
+  + alertmanagerConfig.receiver.withWebhookConfigs([
+    alertmanagerConfig.receiver.webhook.new('http://localhost/hot/new/webhook'),
   ]);
 
 alertmanagerConfig.withRoute([
@@ -38,14 +38,15 @@ alertmanagerConfig.withRoute([
 ## Subpackages
 
 * [global](alertmanagerConfig/global.md)
-* [inhibit_rules](alertmanagerConfig/inhibit_rules.md)
+* [inhibit_rule](alertmanagerConfig/inhibit_rule.md)
 * [mute_time_intervals](alertmanagerConfig/mute_time_intervals.md)
-* [receivers](alertmanagerConfig/receivers.md)
+* [receiver](alertmanagerConfig/receiver.md)
 * [route](alertmanagerConfig/route.md)
 * [time_intervals](alertmanagerConfig/time_intervals.md)
 
 ## Index
 
+* [`fn getCommonTemplates()`](#fn-getcommontemplates)
 * [`fn withGlobal(value)`](#fn-withglobal)
 * [`fn withGlobalMixin(value)`](#fn-withglobalmixin)
 * [`fn withInhibitRules(value)`](#fn-withinhibitrules)
@@ -60,8 +61,20 @@ alertmanagerConfig.withRoute([
 * [`fn withTemplatesMixin(value)`](#fn-withtemplatesmixin)
 * [`fn withTimeIntervals(value)`](#fn-withtimeintervals)
 * [`fn withTimeIntervalsMixin(value)`](#fn-withtimeintervalsmixin)
+* [`obj util`](#obj-util)
+  * [`fn getReceiverNamesFromRoute(route)`](#fn-utilgetreceivernamesfromroute)
+  * [`fn getReceiversForRoute(receivers, route)`](#fn-utilgetreceiversforroute)
+  * [`fn getUndefinedReceiversFromRoute(receivers, route)`](#fn-utilgetundefinedreceiversfromroute)
 
 ## Fields
+
+### fn getCommonTemplates
+
+```ts
+getCommonTemplates()
+```
+
+`getCommonTemplates` provides a set of common templates to use with Alertmanager.
 
 ### fn withGlobal
 
@@ -174,3 +187,30 @@ withTimeIntervalsMixin(value)
 ```
 
 
+
+### obj util
+
+
+#### fn util.getReceiverNamesFromRoute
+
+```ts
+getReceiverNamesFromRoute(route)
+```
+
+`getReceiverNamesFromRoute` returns an array of receivers from a route.
+
+#### fn util.getReceiversForRoute
+
+```ts
+getReceiversForRoute(receivers, route)
+```
+
+`getReceiversForRoute` returns the subset of receivers actually used in given route.
+
+#### fn util.getUndefinedReceiversFromRoute
+
+```ts
+getUndefinedReceiversFromRoute(receivers, route)
+```
+
+`getUndefinedReceiversFromRoute` returns which receivers are undefined but used in a route.

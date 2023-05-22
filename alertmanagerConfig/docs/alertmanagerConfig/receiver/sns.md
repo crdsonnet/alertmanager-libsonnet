@@ -1,4 +1,4 @@
-# package sns_configs
+# sns
 
 
 

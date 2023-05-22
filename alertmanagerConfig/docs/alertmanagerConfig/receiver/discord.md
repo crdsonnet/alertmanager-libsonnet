@@ -1,4 +1,4 @@
-# package webhook_configs
+# discord
 
 
 
@@ -6,10 +6,11 @@
 
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
-* [`fn withMaxAlerts(value)`](#fn-withmaxalerts)
+* [`fn withMessage(value)`](#fn-withmessage)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withUrl(value)`](#fn-withurl)
-* [`fn withUrlMixin(value)`](#fn-withurlmixin)
+* [`fn withTitle(value)`](#fn-withtitle)
+* [`fn withWebhookUrl(value)`](#fn-withwebhookurl)
+* [`fn withWebhookUrlMixin(value)`](#fn-withwebhookurlmixin)
 * [`obj http_config`](#obj-http_config)
   * [`fn withAuthorization(value)`](#fn-http_configwithauthorization)
   * [`fn withAuthorizationMixin(value)`](#fn-http_configwithauthorizationmixin)
@@ -88,19 +89,19 @@
     * [`fn withMaxVersion(value)`](#fn-http_configtls_configwithmaxversion)
     * [`fn withMinVersion(value)`](#fn-http_configtls_configwithminversion)
     * [`fn withServerName(value)`](#fn-http_configtls_configwithservername)
-* [`obj url`](#obj-url)
-  * [`fn withForceQuery(value)`](#fn-urlwithforcequery)
-  * [`fn withFragment(value)`](#fn-urlwithfragment)
-  * [`fn withHost(value)`](#fn-urlwithhost)
-  * [`fn withOmitHost(value)`](#fn-urlwithomithost)
-  * [`fn withOpaque(value)`](#fn-urlwithopaque)
-  * [`fn withPath(value)`](#fn-urlwithpath)
-  * [`fn withRawFragment(value)`](#fn-urlwithrawfragment)
-  * [`fn withRawPath(value)`](#fn-urlwithrawpath)
-  * [`fn withRawQuery(value)`](#fn-urlwithrawquery)
-  * [`fn withScheme(value)`](#fn-urlwithscheme)
-  * [`fn withUser(value)`](#fn-urlwithuser)
-  * [`fn withUserMixin(value)`](#fn-urlwithusermixin)
+* [`obj webhook_url`](#obj-webhook_url)
+  * [`fn withForceQuery(value)`](#fn-webhook_urlwithforcequery)
+  * [`fn withFragment(value)`](#fn-webhook_urlwithfragment)
+  * [`fn withHost(value)`](#fn-webhook_urlwithhost)
+  * [`fn withOmitHost(value)`](#fn-webhook_urlwithomithost)
+  * [`fn withOpaque(value)`](#fn-webhook_urlwithopaque)
+  * [`fn withPath(value)`](#fn-webhook_urlwithpath)
+  * [`fn withRawFragment(value)`](#fn-webhook_urlwithrawfragment)
+  * [`fn withRawPath(value)`](#fn-webhook_urlwithrawpath)
+  * [`fn withRawQuery(value)`](#fn-webhook_urlwithrawquery)
+  * [`fn withScheme(value)`](#fn-webhook_urlwithscheme)
+  * [`fn withUser(value)`](#fn-webhook_urlwithuser)
+  * [`fn withUserMixin(value)`](#fn-webhook_urlwithusermixin)
 
 ## Fields
 
@@ -120,10 +121,10 @@ withHttpConfigMixin(value)
 
 
 
-### fn withMaxAlerts
+### fn withMessage
 
 ```ts
-withMaxAlerts(value)
+withMessage(value)
 ```
 
 
@@ -136,18 +137,26 @@ withSendResolved(value)
 
 
 
-### fn withUrl
+### fn withTitle
 
 ```ts
-withUrl(value)
+withTitle(value)
 ```
 
 
 
-### fn withUrlMixin
+### fn withWebhookUrl
 
 ```ts
-withUrlMixin(value)
+withWebhookUrl(value)
+```
+
+
+
+### fn withWebhookUrlMixin
+
+```ts
+withWebhookUrlMixin(value)
 ```
 
 
@@ -736,10 +745,10 @@ withServerName(value)
 
 
 
-### obj url
+### obj webhook_url
 
 
-#### fn url.withForceQuery
+#### fn webhook_url.withForceQuery
 
 ```ts
 withForceQuery(value)
@@ -747,7 +756,7 @@ withForceQuery(value)
 
 
 
-#### fn url.withFragment
+#### fn webhook_url.withFragment
 
 ```ts
 withFragment(value)
@@ -755,7 +764,7 @@ withFragment(value)
 
 
 
-#### fn url.withHost
+#### fn webhook_url.withHost
 
 ```ts
 withHost(value)
@@ -763,7 +772,7 @@ withHost(value)
 
 
 
-#### fn url.withOmitHost
+#### fn webhook_url.withOmitHost
 
 ```ts
 withOmitHost(value)
@@ -771,7 +780,7 @@ withOmitHost(value)
 
 
 
-#### fn url.withOpaque
+#### fn webhook_url.withOpaque
 
 ```ts
 withOpaque(value)
@@ -779,7 +788,7 @@ withOpaque(value)
 
 
 
-#### fn url.withPath
+#### fn webhook_url.withPath
 
 ```ts
 withPath(value)
@@ -787,7 +796,7 @@ withPath(value)
 
 
 
-#### fn url.withRawFragment
+#### fn webhook_url.withRawFragment
 
 ```ts
 withRawFragment(value)
@@ -795,7 +804,7 @@ withRawFragment(value)
 
 
 
-#### fn url.withRawPath
+#### fn webhook_url.withRawPath
 
 ```ts
 withRawPath(value)
@@ -803,7 +812,7 @@ withRawPath(value)
 
 
 
-#### fn url.withRawQuery
+#### fn webhook_url.withRawQuery
 
 ```ts
 withRawQuery(value)
@@ -811,7 +820,7 @@ withRawQuery(value)
 
 
 
-#### fn url.withScheme
+#### fn webhook_url.withScheme
 
 ```ts
 withScheme(value)
@@ -819,7 +828,7 @@ withScheme(value)
 
 
 
-#### fn url.withUser
+#### fn webhook_url.withUser
 
 ```ts
 withUser(value)
@@ -827,7 +836,7 @@ withUser(value)
 
 
 
-#### fn url.withUserMixin
+#### fn webhook_url.withUserMixin
 
 ```ts
 withUserMixin(value)

@@ -1,4 +1,4 @@
-# package email_configs
+# email
 
 
 

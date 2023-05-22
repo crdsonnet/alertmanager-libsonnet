@@ -1,23 +1,22 @@
-# package victorops_configs
+# wechat
 
 
 
 ## Index
 
-* [`fn withApiKey(value)`](#fn-withapikey)
-* [`fn withApiKeyFile(value)`](#fn-withapikeyfile)
+* [`fn withAgentId(value)`](#fn-withagentid)
+* [`fn withApiSecret(value)`](#fn-withapisecret)
 * [`fn withApiUrl(value)`](#fn-withapiurl)
 * [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
-* [`fn withCustomFields(value)`](#fn-withcustomfields)
-* [`fn withCustomFieldsMixin(value)`](#fn-withcustomfieldsmixin)
-* [`fn withEntityDisplayName(value)`](#fn-withentitydisplayname)
+* [`fn withCorpId(value)`](#fn-withcorpid)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
+* [`fn withMessage(value)`](#fn-withmessage)
 * [`fn withMessageType(value)`](#fn-withmessagetype)
-* [`fn withMonitoringTool(value)`](#fn-withmonitoringtool)
-* [`fn withRoutingKey(value)`](#fn-withroutingkey)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withStateMessage(value)`](#fn-withstatemessage)
+* [`fn withToParty(value)`](#fn-withtoparty)
+* [`fn withToTag(value)`](#fn-withtotag)
+* [`fn withToUser(value)`](#fn-withtouser)
 * [`obj api_url`](#obj-api_url)
   * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
   * [`fn withFragment(value)`](#fn-api_urlwithfragment)
@@ -112,18 +111,18 @@
 
 ## Fields
 
-### fn withApiKey
+### fn withAgentId
 
 ```ts
-withApiKey(value)
+withAgentId(value)
 ```
 
 
 
-### fn withApiKeyFile
+### fn withApiSecret
 
 ```ts
-withApiKeyFile(value)
+withApiSecret(value)
 ```
 
 
@@ -144,26 +143,10 @@ withApiUrlMixin(value)
 
 
 
-### fn withCustomFields
+### fn withCorpId
 
 ```ts
-withCustomFields(value)
-```
-
-
-
-### fn withCustomFieldsMixin
-
-```ts
-withCustomFieldsMixin(value)
-```
-
-
-
-### fn withEntityDisplayName
-
-```ts
-withEntityDisplayName(value)
+withCorpId(value)
 ```
 
 
@@ -184,26 +167,18 @@ withHttpConfigMixin(value)
 
 
 
+### fn withMessage
+
+```ts
+withMessage(value)
+```
+
+
+
 ### fn withMessageType
 
 ```ts
 withMessageType(value)
-```
-
-
-
-### fn withMonitoringTool
-
-```ts
-withMonitoringTool(value)
-```
-
-
-
-### fn withRoutingKey
-
-```ts
-withRoutingKey(value)
 ```
 
 
@@ -216,10 +191,26 @@ withSendResolved(value)
 
 
 
-### fn withStateMessage
+### fn withToParty
 
 ```ts
-withStateMessage(value)
+withToParty(value)
+```
+
+
+
+### fn withToTag
+
+```ts
+withToTag(value)
+```
+
+
+
+### fn withToUser
+
+```ts
+withToUser(value)
 ```
 
 

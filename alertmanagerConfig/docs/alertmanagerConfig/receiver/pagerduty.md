@@ -1,35 +1,33 @@
-# package wechat_configs
+# pagerduty
 
 
 
 ## Index
 
-* [`fn withAgentId(value)`](#fn-withagentid)
-* [`fn withApiSecret(value)`](#fn-withapisecret)
-* [`fn withApiUrl(value)`](#fn-withapiurl)
-* [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
-* [`fn withCorpId(value)`](#fn-withcorpid)
+* [`fn withClass(value)`](#fn-withclass)
+* [`fn withClient(value)`](#fn-withclient)
+* [`fn withClientUrl(value)`](#fn-withclienturl)
+* [`fn withComponent(value)`](#fn-withcomponent)
+* [`fn withConfigTemplate()`](#fn-withconfigtemplate)
+* [`fn withDescription(value)`](#fn-withdescription)
+* [`fn withDetails(value)`](#fn-withdetails)
+* [`fn withDetailsMixin(value)`](#fn-withdetailsmixin)
+* [`fn withGroup(value)`](#fn-withgroup)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
-* [`fn withMessage(value)`](#fn-withmessage)
-* [`fn withMessageType(value)`](#fn-withmessagetype)
+* [`fn withImages(value)`](#fn-withimages)
+* [`fn withImagesMixin(value)`](#fn-withimagesmixin)
+* [`fn withLinks(value)`](#fn-withlinks)
+* [`fn withLinksMixin(value)`](#fn-withlinksmixin)
+* [`fn withRoutingKey(value)`](#fn-withroutingkey)
+* [`fn withRoutingKeyFile(value)`](#fn-withroutingkeyfile)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withToParty(value)`](#fn-withtoparty)
-* [`fn withToTag(value)`](#fn-withtotag)
-* [`fn withToUser(value)`](#fn-withtouser)
-* [`obj api_url`](#obj-api_url)
-  * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
-  * [`fn withFragment(value)`](#fn-api_urlwithfragment)
-  * [`fn withHost(value)`](#fn-api_urlwithhost)
-  * [`fn withOmitHost(value)`](#fn-api_urlwithomithost)
-  * [`fn withOpaque(value)`](#fn-api_urlwithopaque)
-  * [`fn withPath(value)`](#fn-api_urlwithpath)
-  * [`fn withRawFragment(value)`](#fn-api_urlwithrawfragment)
-  * [`fn withRawPath(value)`](#fn-api_urlwithrawpath)
-  * [`fn withRawQuery(value)`](#fn-api_urlwithrawquery)
-  * [`fn withScheme(value)`](#fn-api_urlwithscheme)
-  * [`fn withUser(value)`](#fn-api_urlwithuser)
-  * [`fn withUserMixin(value)`](#fn-api_urlwithusermixin)
+* [`fn withServiceKey(value)`](#fn-withservicekey)
+* [`fn withServiceKeyFile(value)`](#fn-withservicekeyfile)
+* [`fn withSeverity(value)`](#fn-withseverity)
+* [`fn withSource(value)`](#fn-withsource)
+* [`fn withUrl(value)`](#fn-withurl)
+* [`fn withUrlMixin(value)`](#fn-withurlmixin)
 * [`obj http_config`](#obj-http_config)
   * [`fn withAuthorization(value)`](#fn-http_configwithauthorization)
   * [`fn withAuthorizationMixin(value)`](#fn-http_configwithauthorizationmixin)
@@ -108,45 +106,97 @@
     * [`fn withMaxVersion(value)`](#fn-http_configtls_configwithmaxversion)
     * [`fn withMinVersion(value)`](#fn-http_configtls_configwithminversion)
     * [`fn withServerName(value)`](#fn-http_configtls_configwithservername)
+* [`obj images`](#obj-images)
+  * [`fn withAlt(value)`](#fn-imageswithalt)
+  * [`fn withHref(value)`](#fn-imageswithhref)
+  * [`fn withSrc(value)`](#fn-imageswithsrc)
+* [`obj links`](#obj-links)
+  * [`fn withHref(value)`](#fn-linkswithhref)
+  * [`fn withText(value)`](#fn-linkswithtext)
+* [`obj url`](#obj-url)
+  * [`fn withForceQuery(value)`](#fn-urlwithforcequery)
+  * [`fn withFragment(value)`](#fn-urlwithfragment)
+  * [`fn withHost(value)`](#fn-urlwithhost)
+  * [`fn withOmitHost(value)`](#fn-urlwithomithost)
+  * [`fn withOpaque(value)`](#fn-urlwithopaque)
+  * [`fn withPath(value)`](#fn-urlwithpath)
+  * [`fn withRawFragment(value)`](#fn-urlwithrawfragment)
+  * [`fn withRawPath(value)`](#fn-urlwithrawpath)
+  * [`fn withRawQuery(value)`](#fn-urlwithrawquery)
+  * [`fn withScheme(value)`](#fn-urlwithscheme)
+  * [`fn withUser(value)`](#fn-urlwithuser)
+  * [`fn withUserMixin(value)`](#fn-urlwithusermixin)
 
 ## Fields
 
-### fn withAgentId
+### fn withClass
 
 ```ts
-withAgentId(value)
+withClass(value)
 ```
 
 
 
-### fn withApiSecret
+### fn withClient
 
 ```ts
-withApiSecret(value)
+withClient(value)
 ```
 
 
 
-### fn withApiUrl
+### fn withClientUrl
 
 ```ts
-withApiUrl(value)
+withClientUrl(value)
 ```
 
 
 
-### fn withApiUrlMixin
+### fn withComponent
 
 ```ts
-withApiUrlMixin(value)
+withComponent(value)
 ```
 
 
 
-### fn withCorpId
+### fn withConfigTemplate
 
 ```ts
-withCorpId(value)
+withConfigTemplate()
+```
+
+`withConfigTemplate` adds an opinionated config template.
+
+### fn withDescription
+
+```ts
+withDescription(value)
+```
+
+
+
+### fn withDetails
+
+```ts
+withDetails(value)
+```
+
+
+
+### fn withDetailsMixin
+
+```ts
+withDetailsMixin(value)
+```
+
+
+
+### fn withGroup
+
+```ts
+withGroup(value)
 ```
 
 
@@ -167,18 +217,50 @@ withHttpConfigMixin(value)
 
 
 
-### fn withMessage
+### fn withImages
 
 ```ts
-withMessage(value)
+withImages(value)
 ```
 
 
 
-### fn withMessageType
+### fn withImagesMixin
 
 ```ts
-withMessageType(value)
+withImagesMixin(value)
+```
+
+
+
+### fn withLinks
+
+```ts
+withLinks(value)
+```
+
+
+
+### fn withLinksMixin
+
+```ts
+withLinksMixin(value)
+```
+
+
+
+### fn withRoutingKey
+
+```ts
+withRoutingKey(value)
+```
+
+
+
+### fn withRoutingKeyFile
+
+```ts
+withRoutingKeyFile(value)
 ```
 
 
@@ -191,125 +273,50 @@ withSendResolved(value)
 
 
 
-### fn withToParty
+### fn withServiceKey
 
 ```ts
-withToParty(value)
+withServiceKey(value)
 ```
 
 
 
-### fn withToTag
+### fn withServiceKeyFile
 
 ```ts
-withToTag(value)
+withServiceKeyFile(value)
 ```
 
 
 
-### fn withToUser
+### fn withSeverity
 
 ```ts
-withToUser(value)
+withSeverity(value)
 ```
 
 
 
-### obj api_url
-
-
-#### fn api_url.withForceQuery
+### fn withSource
 
 ```ts
-withForceQuery(value)
+withSource(value)
 ```
 
 
 
-#### fn api_url.withFragment
+### fn withUrl
 
 ```ts
-withFragment(value)
+withUrl(value)
 ```
 
 
 
-#### fn api_url.withHost
+### fn withUrlMixin
 
 ```ts
-withHost(value)
-```
-
-
-
-#### fn api_url.withOmitHost
-
-```ts
-withOmitHost(value)
-```
-
-
-
-#### fn api_url.withOpaque
-
-```ts
-withOpaque(value)
-```
-
-
-
-#### fn api_url.withPath
-
-```ts
-withPath(value)
-```
-
-
-
-#### fn api_url.withRawFragment
-
-```ts
-withRawFragment(value)
-```
-
-
-
-#### fn api_url.withRawPath
-
-```ts
-withRawPath(value)
-```
-
-
-
-#### fn api_url.withRawQuery
-
-```ts
-withRawQuery(value)
-```
-
-
-
-#### fn api_url.withScheme
-
-```ts
-withScheme(value)
-```
-
-
-
-#### fn api_url.withUser
-
-```ts
-withUser(value)
-```
-
-
-
-#### fn api_url.withUserMixin
-
-```ts
-withUserMixin(value)
+withUrlMixin(value)
 ```
 
 
@@ -894,6 +901,151 @@ withMinVersion(value)
 
 ```ts
 withServerName(value)
+```
+
+
+
+### obj images
+
+
+#### fn images.withAlt
+
+```ts
+withAlt(value)
+```
+
+
+
+#### fn images.withHref
+
+```ts
+withHref(value)
+```
+
+
+
+#### fn images.withSrc
+
+```ts
+withSrc(value)
+```
+
+
+
+### obj links
+
+
+#### fn links.withHref
+
+```ts
+withHref(value)
+```
+
+
+
+#### fn links.withText
+
+```ts
+withText(value)
+```
+
+
+
+### obj url
+
+
+#### fn url.withForceQuery
+
+```ts
+withForceQuery(value)
+```
+
+
+
+#### fn url.withFragment
+
+```ts
+withFragment(value)
+```
+
+
+
+#### fn url.withHost
+
+```ts
+withHost(value)
+```
+
+
+
+#### fn url.withOmitHost
+
+```ts
+withOmitHost(value)
+```
+
+
+
+#### fn url.withOpaque
+
+```ts
+withOpaque(value)
+```
+
+
+
+#### fn url.withPath
+
+```ts
+withPath(value)
+```
+
+
+
+#### fn url.withRawFragment
+
+```ts
+withRawFragment(value)
+```
+
+
+
+#### fn url.withRawPath
+
+```ts
+withRawPath(value)
+```
+
+
+
+#### fn url.withRawQuery
+
+```ts
+withRawQuery(value)
+```
+
+
+
+#### fn url.withScheme
+
+```ts
+withScheme(value)
+```
+
+
+
+#### fn url.withUser
+
+```ts
+withUser(value)
+```
+
+
+
+#### fn url.withUserMixin
+
+```ts
+withUserMixin(value)
 ```
 
 

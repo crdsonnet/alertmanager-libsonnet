@@ -1,16 +1,42 @@
-# package discord_configs
+# opsgenie
 
 
 
 ## Index
 
+* [`fn withActions(value)`](#fn-withactions)
+* [`fn withApiKey(value)`](#fn-withapikey)
+* [`fn withApiKeyFile(value)`](#fn-withapikeyfile)
+* [`fn withApiUrl(value)`](#fn-withapiurl)
+* [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
+* [`fn withDescription(value)`](#fn-withdescription)
+* [`fn withDetails(value)`](#fn-withdetails)
+* [`fn withDetailsMixin(value)`](#fn-withdetailsmixin)
+* [`fn withEntity(value)`](#fn-withentity)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
 * [`fn withMessage(value)`](#fn-withmessage)
+* [`fn withNote(value)`](#fn-withnote)
+* [`fn withPriority(value)`](#fn-withpriority)
+* [`fn withResponders(value)`](#fn-withresponders)
+* [`fn withRespondersMixin(value)`](#fn-withrespondersmixin)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withTitle(value)`](#fn-withtitle)
-* [`fn withWebhookUrl(value)`](#fn-withwebhookurl)
-* [`fn withWebhookUrlMixin(value)`](#fn-withwebhookurlmixin)
+* [`fn withSource(value)`](#fn-withsource)
+* [`fn withTags(value)`](#fn-withtags)
+* [`fn withUpdateAlerts(value)`](#fn-withupdatealerts)
+* [`obj api_url`](#obj-api_url)
+  * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
+  * [`fn withFragment(value)`](#fn-api_urlwithfragment)
+  * [`fn withHost(value)`](#fn-api_urlwithhost)
+  * [`fn withOmitHost(value)`](#fn-api_urlwithomithost)
+  * [`fn withOpaque(value)`](#fn-api_urlwithopaque)
+  * [`fn withPath(value)`](#fn-api_urlwithpath)
+  * [`fn withRawFragment(value)`](#fn-api_urlwithrawfragment)
+  * [`fn withRawPath(value)`](#fn-api_urlwithrawpath)
+  * [`fn withRawQuery(value)`](#fn-api_urlwithrawquery)
+  * [`fn withScheme(value)`](#fn-api_urlwithscheme)
+  * [`fn withUser(value)`](#fn-api_urlwithuser)
+  * [`fn withUserMixin(value)`](#fn-api_urlwithusermixin)
 * [`obj http_config`](#obj-http_config)
   * [`fn withAuthorization(value)`](#fn-http_configwithauthorization)
   * [`fn withAuthorizationMixin(value)`](#fn-http_configwithauthorizationmixin)
@@ -89,21 +115,85 @@
     * [`fn withMaxVersion(value)`](#fn-http_configtls_configwithmaxversion)
     * [`fn withMinVersion(value)`](#fn-http_configtls_configwithminversion)
     * [`fn withServerName(value)`](#fn-http_configtls_configwithservername)
-* [`obj webhook_url`](#obj-webhook_url)
-  * [`fn withForceQuery(value)`](#fn-webhook_urlwithforcequery)
-  * [`fn withFragment(value)`](#fn-webhook_urlwithfragment)
-  * [`fn withHost(value)`](#fn-webhook_urlwithhost)
-  * [`fn withOmitHost(value)`](#fn-webhook_urlwithomithost)
-  * [`fn withOpaque(value)`](#fn-webhook_urlwithopaque)
-  * [`fn withPath(value)`](#fn-webhook_urlwithpath)
-  * [`fn withRawFragment(value)`](#fn-webhook_urlwithrawfragment)
-  * [`fn withRawPath(value)`](#fn-webhook_urlwithrawpath)
-  * [`fn withRawQuery(value)`](#fn-webhook_urlwithrawquery)
-  * [`fn withScheme(value)`](#fn-webhook_urlwithscheme)
-  * [`fn withUser(value)`](#fn-webhook_urlwithuser)
-  * [`fn withUserMixin(value)`](#fn-webhook_urlwithusermixin)
+* [`obj responders`](#obj-responders)
+  * [`fn withId(value)`](#fn-responderswithid)
+  * [`fn withName(value)`](#fn-responderswithname)
+  * [`fn withType(value)`](#fn-responderswithtype)
+  * [`fn withUsername(value)`](#fn-responderswithusername)
 
 ## Fields
+
+### fn withActions
+
+```ts
+withActions(value)
+```
+
+
+
+### fn withApiKey
+
+```ts
+withApiKey(value)
+```
+
+
+
+### fn withApiKeyFile
+
+```ts
+withApiKeyFile(value)
+```
+
+
+
+### fn withApiUrl
+
+```ts
+withApiUrl(value)
+```
+
+
+
+### fn withApiUrlMixin
+
+```ts
+withApiUrlMixin(value)
+```
+
+
+
+### fn withDescription
+
+```ts
+withDescription(value)
+```
+
+
+
+### fn withDetails
+
+```ts
+withDetails(value)
+```
+
+
+
+### fn withDetailsMixin
+
+```ts
+withDetailsMixin(value)
+```
+
+
+
+### fn withEntity
+
+```ts
+withEntity(value)
+```
+
+
 
 ### fn withHttpConfig
 
@@ -129,6 +219,38 @@ withMessage(value)
 
 
 
+### fn withNote
+
+```ts
+withNote(value)
+```
+
+
+
+### fn withPriority
+
+```ts
+withPriority(value)
+```
+
+
+
+### fn withResponders
+
+```ts
+withResponders(value)
+```
+
+
+
+### fn withRespondersMixin
+
+```ts
+withRespondersMixin(value)
+```
+
+
+
 ### fn withSendResolved
 
 ```ts
@@ -137,26 +259,125 @@ withSendResolved(value)
 
 
 
-### fn withTitle
+### fn withSource
 
 ```ts
-withTitle(value)
+withSource(value)
 ```
 
 
 
-### fn withWebhookUrl
+### fn withTags
 
 ```ts
-withWebhookUrl(value)
+withTags(value)
 ```
 
 
 
-### fn withWebhookUrlMixin
+### fn withUpdateAlerts
 
 ```ts
-withWebhookUrlMixin(value)
+withUpdateAlerts(value)
+```
+
+
+
+### obj api_url
+
+
+#### fn api_url.withForceQuery
+
+```ts
+withForceQuery(value)
+```
+
+
+
+#### fn api_url.withFragment
+
+```ts
+withFragment(value)
+```
+
+
+
+#### fn api_url.withHost
+
+```ts
+withHost(value)
+```
+
+
+
+#### fn api_url.withOmitHost
+
+```ts
+withOmitHost(value)
+```
+
+
+
+#### fn api_url.withOpaque
+
+```ts
+withOpaque(value)
+```
+
+
+
+#### fn api_url.withPath
+
+```ts
+withPath(value)
+```
+
+
+
+#### fn api_url.withRawFragment
+
+```ts
+withRawFragment(value)
+```
+
+
+
+#### fn api_url.withRawPath
+
+```ts
+withRawPath(value)
+```
+
+
+
+#### fn api_url.withRawQuery
+
+```ts
+withRawQuery(value)
+```
+
+
+
+#### fn api_url.withScheme
+
+```ts
+withScheme(value)
+```
+
+
+
+#### fn api_url.withUser
+
+```ts
+withUser(value)
+```
+
+
+
+#### fn api_url.withUserMixin
+
+```ts
+withUserMixin(value)
 ```
 
 
@@ -745,101 +966,37 @@ withServerName(value)
 
 
 
-### obj webhook_url
+### obj responders
 
 
-#### fn webhook_url.withForceQuery
+#### fn responders.withId
 
 ```ts
-withForceQuery(value)
+withId(value)
 ```
 
 
 
-#### fn webhook_url.withFragment
+#### fn responders.withName
 
 ```ts
-withFragment(value)
+withName(value)
 ```
 
 
 
-#### fn webhook_url.withHost
+#### fn responders.withType
 
 ```ts
-withHost(value)
+withType(value)
 ```
 
 
 
-#### fn webhook_url.withOmitHost
+#### fn responders.withUsername
 
 ```ts
-withOmitHost(value)
-```
-
-
-
-#### fn webhook_url.withOpaque
-
-```ts
-withOpaque(value)
-```
-
-
-
-#### fn webhook_url.withPath
-
-```ts
-withPath(value)
-```
-
-
-
-#### fn webhook_url.withRawFragment
-
-```ts
-withRawFragment(value)
-```
-
-
-
-#### fn webhook_url.withRawPath
-
-```ts
-withRawPath(value)
-```
-
-
-
-#### fn webhook_url.withRawQuery
-
-```ts
-withRawQuery(value)
-```
-
-
-
-#### fn webhook_url.withScheme
-
-```ts
-withScheme(value)
-```
-
-
-
-#### fn webhook_url.withUser
-
-```ts
-withUser(value)
-```
-
-
-
-#### fn webhook_url.withUserMixin
-
-```ts
-withUserMixin(value)
+withUsername(value)
 ```
 
 

@@ -1,4 +1,4 @@
-# package mute_time_intervals
+# mute_time_intervals
 
 
 

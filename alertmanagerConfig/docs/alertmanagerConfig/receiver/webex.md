@@ -1,51 +1,16 @@
-# package slack_configs
+# webex
 
 
 
 ## Index
 
-* [`fn withActions(value)`](#fn-withactions)
-* [`fn withActionsMixin(value)`](#fn-withactionsmixin)
 * [`fn withApiUrl(value)`](#fn-withapiurl)
-* [`fn withApiUrlFile(value)`](#fn-withapiurlfile)
 * [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
-* [`fn withCallbackId(value)`](#fn-withcallbackid)
-* [`fn withChannel(value)`](#fn-withchannel)
-* [`fn withColor(value)`](#fn-withcolor)
-* [`fn withFallback(value)`](#fn-withfallback)
-* [`fn withFields(value)`](#fn-withfields)
-* [`fn withFieldsMixin(value)`](#fn-withfieldsmixin)
-* [`fn withFooter(value)`](#fn-withfooter)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
-* [`fn withIconEmoji(value)`](#fn-withiconemoji)
-* [`fn withIconUrl(value)`](#fn-withiconurl)
-* [`fn withImageUrl(value)`](#fn-withimageurl)
-* [`fn withLinkNames(value)`](#fn-withlinknames)
-* [`fn withMrkdwnIn(value)`](#fn-withmrkdwnin)
-* [`fn withMrkdwnInMixin(value)`](#fn-withmrkdwninmixin)
-* [`fn withPretext(value)`](#fn-withpretext)
+* [`fn withMessage(value)`](#fn-withmessage)
+* [`fn withRoomId(value)`](#fn-withroomid)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withShortFields(value)`](#fn-withshortfields)
-* [`fn withText(value)`](#fn-withtext)
-* [`fn withThumbUrl(value)`](#fn-withthumburl)
-* [`fn withTitle(value)`](#fn-withtitle)
-* [`fn withTitleLink(value)`](#fn-withtitlelink)
-* [`fn withUsername(value)`](#fn-withusername)
-* [`obj actions`](#obj-actions)
-  * [`fn withConfirm(value)`](#fn-actionswithconfirm)
-  * [`fn withConfirmMixin(value)`](#fn-actionswithconfirmmixin)
-  * [`fn withName(value)`](#fn-actionswithname)
-  * [`fn withStyle(value)`](#fn-actionswithstyle)
-  * [`fn withText(value)`](#fn-actionswithtext)
-  * [`fn withType(value)`](#fn-actionswithtype)
-  * [`fn withUrl(value)`](#fn-actionswithurl)
-  * [`fn withValue(value)`](#fn-actionswithvalue)
-  * [`obj confirm`](#obj-actionsconfirm)
-    * [`fn withDismissText(value)`](#fn-actionsconfirmwithdismisstext)
-    * [`fn withOkText(value)`](#fn-actionsconfirmwithoktext)
-    * [`fn withText(value)`](#fn-actionsconfirmwithtext)
-    * [`fn withTitle(value)`](#fn-actionsconfirmwithtitle)
 * [`obj api_url`](#obj-api_url)
   * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
   * [`fn withFragment(value)`](#fn-api_urlwithfragment)
@@ -59,10 +24,6 @@
   * [`fn withScheme(value)`](#fn-api_urlwithscheme)
   * [`fn withUser(value)`](#fn-api_urlwithuser)
   * [`fn withUserMixin(value)`](#fn-api_urlwithusermixin)
-* [`obj fields`](#obj-fields)
-  * [`fn withShort(value)`](#fn-fieldswithshort)
-  * [`fn withTitle(value)`](#fn-fieldswithtitle)
-  * [`fn withValue(value)`](#fn-fieldswithvalue)
 * [`obj http_config`](#obj-http_config)
   * [`fn withAuthorization(value)`](#fn-http_configwithauthorization)
   * [`fn withAuthorizationMixin(value)`](#fn-http_configwithauthorizationmixin)
@@ -144,22 +105,6 @@
 
 ## Fields
 
-### fn withActions
-
-```ts
-withActions(value)
-```
-
-
-
-### fn withActionsMixin
-
-```ts
-withActionsMixin(value)
-```
-
-
-
 ### fn withApiUrl
 
 ```ts
@@ -168,74 +113,10 @@ withApiUrl(value)
 
 
 
-### fn withApiUrlFile
-
-```ts
-withApiUrlFile(value)
-```
-
-
-
 ### fn withApiUrlMixin
 
 ```ts
 withApiUrlMixin(value)
-```
-
-
-
-### fn withCallbackId
-
-```ts
-withCallbackId(value)
-```
-
-
-
-### fn withChannel
-
-```ts
-withChannel(value)
-```
-
-
-
-### fn withColor
-
-```ts
-withColor(value)
-```
-
-
-
-### fn withFallback
-
-```ts
-withFallback(value)
-```
-
-
-
-### fn withFields
-
-```ts
-withFields(value)
-```
-
-
-
-### fn withFieldsMixin
-
-```ts
-withFieldsMixin(value)
-```
-
-
-
-### fn withFooter
-
-```ts
-withFooter(value)
 ```
 
 
@@ -256,58 +137,18 @@ withHttpConfigMixin(value)
 
 
 
-### fn withIconEmoji
+### fn withMessage
 
 ```ts
-withIconEmoji(value)
+withMessage(value)
 ```
 
 
 
-### fn withIconUrl
+### fn withRoomId
 
 ```ts
-withIconUrl(value)
-```
-
-
-
-### fn withImageUrl
-
-```ts
-withImageUrl(value)
-```
-
-
-
-### fn withLinkNames
-
-```ts
-withLinkNames(value)
-```
-
-
-
-### fn withMrkdwnIn
-
-```ts
-withMrkdwnIn(value)
-```
-
-
-
-### fn withMrkdwnInMixin
-
-```ts
-withMrkdwnInMixin(value)
-```
-
-
-
-### fn withPretext
-
-```ts
-withPretext(value)
+withRoomId(value)
 ```
 
 
@@ -316,156 +157,6 @@ withPretext(value)
 
 ```ts
 withSendResolved(value)
-```
-
-
-
-### fn withShortFields
-
-```ts
-withShortFields(value)
-```
-
-
-
-### fn withText
-
-```ts
-withText(value)
-```
-
-
-
-### fn withThumbUrl
-
-```ts
-withThumbUrl(value)
-```
-
-
-
-### fn withTitle
-
-```ts
-withTitle(value)
-```
-
-
-
-### fn withTitleLink
-
-```ts
-withTitleLink(value)
-```
-
-
-
-### fn withUsername
-
-```ts
-withUsername(value)
-```
-
-
-
-### obj actions
-
-
-#### fn actions.withConfirm
-
-```ts
-withConfirm(value)
-```
-
-
-
-#### fn actions.withConfirmMixin
-
-```ts
-withConfirmMixin(value)
-```
-
-
-
-#### fn actions.withName
-
-```ts
-withName(value)
-```
-
-
-
-#### fn actions.withStyle
-
-```ts
-withStyle(value)
-```
-
-
-
-#### fn actions.withText
-
-```ts
-withText(value)
-```
-
-
-
-#### fn actions.withType
-
-```ts
-withType(value)
-```
-
-
-
-#### fn actions.withUrl
-
-```ts
-withUrl(value)
-```
-
-
-
-#### fn actions.withValue
-
-```ts
-withValue(value)
-```
-
-
-
-#### obj actions.confirm
-
-
-##### fn actions.confirm.withDismissText
-
-```ts
-withDismissText(value)
-```
-
-
-
-##### fn actions.confirm.withOkText
-
-```ts
-withOkText(value)
-```
-
-
-
-##### fn actions.confirm.withText
-
-```ts
-withText(value)
-```
-
-
-
-##### fn actions.confirm.withTitle
-
-```ts
-withTitle(value)
 ```
 
 
@@ -565,33 +256,6 @@ withUser(value)
 
 ```ts
 withUserMixin(value)
-```
-
-
-
-### obj fields
-
-
-#### fn fields.withShort
-
-```ts
-withShort(value)
-```
-
-
-
-#### fn fields.withTitle
-
-```ts
-withTitle(value)
-```
-
-
-
-#### fn fields.withValue
-
-```ts
-withValue(value)
 ```
 
 

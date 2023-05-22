@@ -1,4 +1,4 @@
-# package time_intervals
+# time_intervals
 
 
 

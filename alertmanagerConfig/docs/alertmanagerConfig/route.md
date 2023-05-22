@@ -1,4 +1,4 @@
-# package route
+# route
 
 
 
@@ -11,10 +11,6 @@
 * [`fn withGroupByMixin(value)`](#fn-withgroupbymixin)
 * [`fn withGroupInterval(value)`](#fn-withgroupinterval)
 * [`fn withGroupWait(value)`](#fn-withgroupwait)
-* [`fn withMatch(value)`](#fn-withmatch)
-* [`fn withMatchMixin(value)`](#fn-withmatchmixin)
-* [`fn withMatchRe(value)`](#fn-withmatchre)
-* [`fn withMatchReMixin(value)`](#fn-withmatchremixin)
 * [`fn withMatchers(value)`](#fn-withmatchers)
 * [`fn withMatchersMixin(value)`](#fn-withmatchersmixin)
 * [`fn withMuteTimeIntervals(value)`](#fn-withmutetimeintervals)
@@ -23,10 +19,6 @@
 * [`fn withRepeatInterval(value)`](#fn-withrepeatinterval)
 * [`fn withRoutes(value)`](#fn-withroutes)
 * [`fn withRoutesMixin(value)`](#fn-withroutesmixin)
-* [`obj matchers`](#obj-matchers)
-  * [`fn withName(value)`](#fn-matcherswithname)
-  * [`fn withType(value)`](#fn-matcherswithtype)
-  * [`fn withValue(value)`](#fn-matcherswithvalue)
 
 ## Fields
 
@@ -86,44 +78,16 @@ withGroupWait(value)
 
 
 
-### fn withMatch
-
-```ts
-withMatch(value)
-```
-
-
-
-### fn withMatchMixin
-
-```ts
-withMatchMixin(value)
-```
-
-
-
-### fn withMatchRe
-
-```ts
-withMatchRe(value)
-```
-
-
-
-### fn withMatchReMixin
-
-```ts
-withMatchReMixin(value)
-```
-
-
-
 ### fn withMatchers
 
 ```ts
 withMatchers(value)
 ```
 
+`withMatchers` accepts an array of matchers.
+
+[See docs](https://prometheus.io/docs/alerting/latest/configuration/#matcher)
+for more information.
 
 
 ### fn withMatchersMixin
@@ -178,33 +142,6 @@ withRoutes(value)
 
 ```ts
 withRoutesMixin(value)
-```
-
-
-
-### obj matchers
-
-
-#### fn matchers.withName
-
-```ts
-withName(value)
-```
-
-
-
-#### fn matchers.withType
-
-```ts
-withType(value)
-```
-
-
-
-#### fn matchers.withValue
-
-```ts
-withValue(value)
 ```
 
 

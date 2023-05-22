@@ -1,24 +1,25 @@
-# package receivers
+# receiver
 
 
 
 ## Subpackages
 
-* [discord_configs](receivers/discord_configs.md)
-* [email_configs](receivers/email_configs.md)
-* [opsgenie_configs](receivers/opsgenie_configs.md)
-* [pagerduty_configs](receivers/pagerduty_configs.md)
-* [pushover_configs](receivers/pushover_configs.md)
-* [slack_configs](receivers/slack_configs.md)
-* [sns_configs](receivers/sns_configs.md)
-* [telegram_configs](receivers/telegram_configs.md)
-* [victorops_configs](receivers/victorops_configs.md)
-* [webex_configs](receivers/webex_configs.md)
-* [webhook_configs](receivers/webhook_configs.md)
-* [wechat_configs](receivers/wechat_configs.md)
+* [discord](receiver/discord.md)
+* [email](receiver/email.md)
+* [opsgenie](receiver/opsgenie.md)
+* [pagerduty](receiver/pagerduty.md)
+* [pushover](receiver/pushover.md)
+* [slack](receiver/slack.md)
+* [sns](receiver/sns.md)
+* [telegram](receiver/telegram.md)
+* [victorops](receiver/victorops.md)
+* [webex](receiver/webex.md)
+* [webhook](receiver/webhook.md)
+* [wechat](receiver/wechat.md)
 
 ## Index
 
+* [`fn new(name)`](#fn-new)
 * [`fn withDiscordConfigs(value)`](#fn-withdiscordconfigs)
 * [`fn withDiscordConfigsMixin(value)`](#fn-withdiscordconfigsmixin)
 * [`fn withEmailConfigs(value)`](#fn-withemailconfigs)
@@ -46,6 +47,14 @@
 * [`fn withWechatConfigsMixin(value)`](#fn-withwechatconfigsmixin)
 
 ## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+`new` instantiates a receiver.
 
 ### fn withDiscordConfigs
 

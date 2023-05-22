@@ -1,19 +1,23 @@
-# package telegram_configs
+# victorops
 
 
 
 ## Index
 
+* [`fn withApiKey(value)`](#fn-withapikey)
+* [`fn withApiKeyFile(value)`](#fn-withapikeyfile)
 * [`fn withApiUrl(value)`](#fn-withapiurl)
 * [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
-* [`fn withChat(value)`](#fn-withchat)
-* [`fn withDisableNotifications(value)`](#fn-withdisablenotifications)
+* [`fn withCustomFields(value)`](#fn-withcustomfields)
+* [`fn withCustomFieldsMixin(value)`](#fn-withcustomfieldsmixin)
+* [`fn withEntityDisplayName(value)`](#fn-withentitydisplayname)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
-* [`fn withMessage(value)`](#fn-withmessage)
-* [`fn withParseMode(value)`](#fn-withparsemode)
+* [`fn withMessageType(value)`](#fn-withmessagetype)
+* [`fn withMonitoringTool(value)`](#fn-withmonitoringtool)
+* [`fn withRoutingKey(value)`](#fn-withroutingkey)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withToken(value)`](#fn-withtoken)
+* [`fn withStateMessage(value)`](#fn-withstatemessage)
 * [`obj api_url`](#obj-api_url)
   * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
   * [`fn withFragment(value)`](#fn-api_urlwithfragment)
@@ -108,6 +112,22 @@
 
 ## Fields
 
+### fn withApiKey
+
+```ts
+withApiKey(value)
+```
+
+
+
+### fn withApiKeyFile
+
+```ts
+withApiKeyFile(value)
+```
+
+
+
 ### fn withApiUrl
 
 ```ts
@@ -124,18 +144,26 @@ withApiUrlMixin(value)
 
 
 
-### fn withChat
+### fn withCustomFields
 
 ```ts
-withChat(value)
+withCustomFields(value)
 ```
 
 
 
-### fn withDisableNotifications
+### fn withCustomFieldsMixin
 
 ```ts
-withDisableNotifications(value)
+withCustomFieldsMixin(value)
+```
+
+
+
+### fn withEntityDisplayName
+
+```ts
+withEntityDisplayName(value)
 ```
 
 
@@ -156,18 +184,26 @@ withHttpConfigMixin(value)
 
 
 
-### fn withMessage
+### fn withMessageType
 
 ```ts
-withMessage(value)
+withMessageType(value)
 ```
 
 
 
-### fn withParseMode
+### fn withMonitoringTool
 
 ```ts
-withParseMode(value)
+withMonitoringTool(value)
+```
+
+
+
+### fn withRoutingKey
+
+```ts
+withRoutingKey(value)
 ```
 
 
@@ -180,10 +216,10 @@ withSendResolved(value)
 
 
 
-### fn withToken
+### fn withStateMessage
 
 ```ts
-withToken(value)
+withStateMessage(value)
 ```
 
 

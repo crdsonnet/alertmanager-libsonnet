@@ -1,4 +1,4 @@
-# package webex_configs
+# telegram
 
 
 
@@ -6,11 +6,14 @@
 
 * [`fn withApiUrl(value)`](#fn-withapiurl)
 * [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
+* [`fn withChat(value)`](#fn-withchat)
+* [`fn withDisableNotifications(value)`](#fn-withdisablenotifications)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
 * [`fn withMessage(value)`](#fn-withmessage)
-* [`fn withRoomId(value)`](#fn-withroomid)
+* [`fn withParseMode(value)`](#fn-withparsemode)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
+* [`fn withToken(value)`](#fn-withtoken)
 * [`obj api_url`](#obj-api_url)
   * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
   * [`fn withFragment(value)`](#fn-api_urlwithfragment)
@@ -121,6 +124,22 @@ withApiUrlMixin(value)
 
 
 
+### fn withChat
+
+```ts
+withChat(value)
+```
+
+
+
+### fn withDisableNotifications
+
+```ts
+withDisableNotifications(value)
+```
+
+
+
 ### fn withHttpConfig
 
 ```ts
@@ -145,10 +164,10 @@ withMessage(value)
 
 
 
-### fn withRoomId
+### fn withParseMode
 
 ```ts
-withRoomId(value)
+withParseMode(value)
 ```
 
 
@@ -157,6 +176,14 @@ withRoomId(value)
 
 ```ts
 withSendResolved(value)
+```
+
+
+
+### fn withToken
+
+```ts
+withToken(value)
 ```
 
 

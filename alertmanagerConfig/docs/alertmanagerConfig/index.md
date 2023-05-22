@@ -1,8 +1,8 @@
 # alertmanagerConfig
 
 * [global](global.md)
-* [inhibit_rules](inhibit_rules.md)
+* [inhibit_rule](inhibit_rule.md)
 * [mute_time_intervals](mute_time_intervals.md)
-* [receivers](receivers.md)
+* [receiver](receiver.md)
 * [route](route.md)
 * [time_intervals](time_intervals.md)

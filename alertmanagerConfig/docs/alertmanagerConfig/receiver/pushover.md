@@ -1,42 +1,23 @@
-# package opsgenie_configs
+# pushover
 
 
 
 ## Index
 
-* [`fn withActions(value)`](#fn-withactions)
-* [`fn withApiKey(value)`](#fn-withapikey)
-* [`fn withApiKeyFile(value)`](#fn-withapikeyfile)
-* [`fn withApiUrl(value)`](#fn-withapiurl)
-* [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
-* [`fn withDescription(value)`](#fn-withdescription)
-* [`fn withDetails(value)`](#fn-withdetails)
-* [`fn withDetailsMixin(value)`](#fn-withdetailsmixin)
-* [`fn withEntity(value)`](#fn-withentity)
+* [`fn withExpire(value)`](#fn-withexpire)
+* [`fn withHtml(value)`](#fn-withhtml)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
 * [`fn withMessage(value)`](#fn-withmessage)
-* [`fn withNote(value)`](#fn-withnote)
 * [`fn withPriority(value)`](#fn-withpriority)
-* [`fn withResponders(value)`](#fn-withresponders)
-* [`fn withRespondersMixin(value)`](#fn-withrespondersmixin)
+* [`fn withRetry(value)`](#fn-withretry)
 * [`fn withSendResolved(value)`](#fn-withsendresolved)
-* [`fn withSource(value)`](#fn-withsource)
-* [`fn withTags(value)`](#fn-withtags)
-* [`fn withUpdateAlerts(value)`](#fn-withupdatealerts)
-* [`obj api_url`](#obj-api_url)
-  * [`fn withForceQuery(value)`](#fn-api_urlwithforcequery)
-  * [`fn withFragment(value)`](#fn-api_urlwithfragment)
-  * [`fn withHost(value)`](#fn-api_urlwithhost)
-  * [`fn withOmitHost(value)`](#fn-api_urlwithomithost)
-  * [`fn withOpaque(value)`](#fn-api_urlwithopaque)
-  * [`fn withPath(value)`](#fn-api_urlwithpath)
-  * [`fn withRawFragment(value)`](#fn-api_urlwithrawfragment)
-  * [`fn withRawPath(value)`](#fn-api_urlwithrawpath)
-  * [`fn withRawQuery(value)`](#fn-api_urlwithrawquery)
-  * [`fn withScheme(value)`](#fn-api_urlwithscheme)
-  * [`fn withUser(value)`](#fn-api_urlwithuser)
-  * [`fn withUserMixin(value)`](#fn-api_urlwithusermixin)
+* [`fn withSound(value)`](#fn-withsound)
+* [`fn withTitle(value)`](#fn-withtitle)
+* [`fn withToken(value)`](#fn-withtoken)
+* [`fn withUrl(value)`](#fn-withurl)
+* [`fn withUrlTitle(value)`](#fn-withurltitle)
+* [`fn withUserKey(value)`](#fn-withuserkey)
 * [`obj http_config`](#obj-http_config)
   * [`fn withAuthorization(value)`](#fn-http_configwithauthorization)
   * [`fn withAuthorizationMixin(value)`](#fn-http_configwithauthorizationmixin)
@@ -115,82 +96,21 @@
     * [`fn withMaxVersion(value)`](#fn-http_configtls_configwithmaxversion)
     * [`fn withMinVersion(value)`](#fn-http_configtls_configwithminversion)
     * [`fn withServerName(value)`](#fn-http_configtls_configwithservername)
-* [`obj responders`](#obj-responders)
-  * [`fn withId(value)`](#fn-responderswithid)
-  * [`fn withName(value)`](#fn-responderswithname)
-  * [`fn withType(value)`](#fn-responderswithtype)
-  * [`fn withUsername(value)`](#fn-responderswithusername)
 
 ## Fields
 
-### fn withActions
+### fn withExpire
 
 ```ts
-withActions(value)
+withExpire(value)
 ```
 
 
 
-### fn withApiKey
+### fn withHtml
 
 ```ts
-withApiKey(value)
-```
-
-
-
-### fn withApiKeyFile
-
-```ts
-withApiKeyFile(value)
-```
-
-
-
-### fn withApiUrl
-
-```ts
-withApiUrl(value)
-```
-
-
-
-### fn withApiUrlMixin
-
-```ts
-withApiUrlMixin(value)
-```
-
-
-
-### fn withDescription
-
-```ts
-withDescription(value)
-```
-
-
-
-### fn withDetails
-
-```ts
-withDetails(value)
-```
-
-
-
-### fn withDetailsMixin
-
-```ts
-withDetailsMixin(value)
-```
-
-
-
-### fn withEntity
-
-```ts
-withEntity(value)
+withHtml(value)
 ```
 
 
@@ -219,14 +139,6 @@ withMessage(value)
 
 
 
-### fn withNote
-
-```ts
-withNote(value)
-```
-
-
-
 ### fn withPriority
 
 ```ts
@@ -235,18 +147,10 @@ withPriority(value)
 
 
 
-### fn withResponders
+### fn withRetry
 
 ```ts
-withResponders(value)
-```
-
-
-
-### fn withRespondersMixin
-
-```ts
-withRespondersMixin(value)
+withRetry(value)
 ```
 
 
@@ -259,125 +163,50 @@ withSendResolved(value)
 
 
 
-### fn withSource
+### fn withSound
 
 ```ts
-withSource(value)
+withSound(value)
 ```
 
 
 
-### fn withTags
+### fn withTitle
 
 ```ts
-withTags(value)
+withTitle(value)
 ```
 
 
 
-### fn withUpdateAlerts
+### fn withToken
 
 ```ts
-withUpdateAlerts(value)
+withToken(value)
 ```
 
 
 
-### obj api_url
-
-
-#### fn api_url.withForceQuery
+### fn withUrl
 
 ```ts
-withForceQuery(value)
+withUrl(value)
 ```
 
 
 
-#### fn api_url.withFragment
+### fn withUrlTitle
 
 ```ts
-withFragment(value)
+withUrlTitle(value)
 ```
 
 
 
-#### fn api_url.withHost
+### fn withUserKey
 
 ```ts
-withHost(value)
-```
-
-
-
-#### fn api_url.withOmitHost
-
-```ts
-withOmitHost(value)
-```
-
-
-
-#### fn api_url.withOpaque
-
-```ts
-withOpaque(value)
-```
-
-
-
-#### fn api_url.withPath
-
-```ts
-withPath(value)
-```
-
-
-
-#### fn api_url.withRawFragment
-
-```ts
-withRawFragment(value)
-```
-
-
-
-#### fn api_url.withRawPath
-
-```ts
-withRawPath(value)
-```
-
-
-
-#### fn api_url.withRawQuery
-
-```ts
-withRawQuery(value)
-```
-
-
-
-#### fn api_url.withScheme
-
-```ts
-withScheme(value)
-```
-
-
-
-#### fn api_url.withUser
-
-```ts
-withUser(value)
-```
-
-
-
-#### fn api_url.withUserMixin
-
-```ts
-withUserMixin(value)
+withUserKey(value)
 ```
 
 
@@ -962,41 +791,6 @@ withMinVersion(value)
 
 ```ts
 withServerName(value)
-```
-
-
-
-### obj responders
-
-
-#### fn responders.withId
-
-```ts
-withId(value)
-```
-
-
-
-#### fn responders.withName
-
-```ts
-withName(value)
-```
-
-
-
-#### fn responders.withType
-
-```ts
-withType(value)
-```
-
-
-
-#### fn responders.withUsername
-
-```ts
-withUsername(value)
 ```
 
 
