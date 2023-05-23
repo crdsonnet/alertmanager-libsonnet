@@ -22,6 +22,13 @@ local parsed = crdsonnet.fromSchema(
   render=render
 );
 
+local parsedRoute = crdsonnet.fromSchema(
+  'route',
+  schema['$defs'].Route,
+  schema,
+  render=render
+);
+
 (
   if render == 'dynamic'
   then parsed.alertmanagerConfig
@@ -106,23 +113,27 @@ local parsed = crdsonnet.fromSchema(
         },
     }
     + {
-      route+: {
-        // Deprecated, remove from docs
-        '#withMatch':: {},
-        '#withMatchMixin':: {},
-        '#withMatchRe':: {},
-        '#withMatchReMixin':: {},
+      route+:
+        parsedRoute.route
+        + {
+          '#':: d.package.newSub('route', ''),
 
-        // Use string format instead of object
-        '#matchers': {},
+          // Deprecated, remove from docs
+          '#withMatch':: {},
+          '#withMatchMixin':: {},
+          '#withMatchRe':: {},
+          '#withMatchReMixin':: {},
 
-        '#withMatchers'+:: d.func.withHelp(|||
-          `withMatchers` accepts an array of matchers.
+          // Use string format instead of object
+          '#matchers': {},
 
-          [See docs](https://prometheus.io/docs/alerting/latest/configuration/#matcher)
-          for more information.
-        |||),
-      },
+          '#withMatchers'+:: d.func.withHelp(|||
+            `withMatchers` accepts an array of matchers.
+
+            [See docs](https://prometheus.io/docs/alerting/latest/configuration/#matcher)
+            for more information.
+          |||),
+        },
 
       inhibit_rules:: {},
       inhibit_rule+:
