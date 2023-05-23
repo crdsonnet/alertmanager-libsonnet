@@ -24,8 +24,7 @@ local parsed = crdsonnet.fromSchema(
 
 local parsedRoute = crdsonnet.fromSchema(
   'route',
-  schema['$defs'].Route,
-  schema,
+  schema + { '$ref': '#/$defs/Route' },
   render=render
 );
 
@@ -108,7 +107,7 @@ local parsedRoute = crdsonnet.fromSchema(
         },
     }
     + {
-      route+:
+      route:
         parsedRoute.route
         + {
           '#':: d.package.newSub('route', ''),
