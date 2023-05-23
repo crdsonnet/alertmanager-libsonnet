@@ -198,7 +198,7 @@ getCommonTemplates()
 getReceiverNamesFromRoute(route)
 ```
 
-`getReceiverNamesFromRoute` returns an array of receivers from a route.
+`getReceiverNamesFromRoute` returns a set of receivers from a route.
 
 #### fn util.getReceiversForRoute
 

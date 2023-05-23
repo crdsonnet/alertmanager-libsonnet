@@ -36,11 +36,6 @@ local parsedRoute = crdsonnet.fromSchema(
 )
 + (
   if render == 'dynamic'
-  then import 'veneer.libsonnet'
-  else importstr 'veneer.libsonnet'
-)
-+ (
-  if render == 'dynamic'
   then
     {
       '#'::
@@ -173,4 +168,9 @@ local parsedRoute = crdsonnet.fromSchema(
         },
     }
   else ''  // don't bother with docs for static rendering
+)
++ (
+  if render == 'dynamic'
+  then import 'veneer.libsonnet'
+  else importstr 'veneer.libsonnet'
 )
