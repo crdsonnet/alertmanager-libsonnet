@@ -125,7 +125,7 @@ local parsed = crdsonnet.fromSchema(
       },
 
       inhibit_rules:: {},
-      inhibit_rule:
+      inhibit_rule+:
         super.inhibit_rules
         + {
           '#':: d.package.newSub('inhibit_rule', ''),

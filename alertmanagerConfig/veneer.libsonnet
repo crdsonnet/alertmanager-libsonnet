@@ -1,5 +1,7 @@
 local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 {
+  local root = self,
+
   util: {
     '#getReceiverNamesFromRoute':: d.fn(
       '`getReceiverNamesFromRoute` returns an array of receivers from a route.',
@@ -50,6 +52,23 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       '`getCommonTemplates` provides a set of common templates to use with Alertmanager.',
     ),
     getCommonTemplates(): (importstr 'commonTemplates.tmpl'),
+
+    '#matchArrayOrString':: d.fn(
+      '`matchArrayOrString` creates a matcher string.',
+      args=[
+        d.arg('key', d.T.string),
+        d.arg('arr', d.T.array),  // can also be a string
+      ]
+    ),
+    matchArrayOrString(key, arr)::
+      key
+      + '=~"'
+      + (
+        if std.isArray(arr)
+        then std.join('|', arr)
+        else arr
+      )
+      + '"',
   },
 
   receiver+: {
@@ -79,44 +98,62 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
         + self.withSendResolved(true)
         + self.withTitle('{{ template "__alert_title" . }}')
         + self.withText('{{ template "__alert_text" . }}')
-        + self.withActionsMixin([
-          self.actions.newButton(
-            'Runbook :green_book:',
-            '{{ (index .Alerts 0).Annotations.runbook_url }}',
-          ),
-          self.actions.newButton(
-            'Source :information_source:',
-            '{{ (index .Alerts 0).GeneratorURL }}',
-          ),
-          self.actions.newButton(
-            'Silence :no_bell:',
-            '{{ template "__alert_silence_link" . }}',
-          ),
-        ]),
+        + self.commonActions.withRunbookButton()
+        + self.commonActions.withSourceButton()
+        + self.commonActions.withSilenceButton(),
 
-      '#withDashboardButton':: d.fn(
-        '`withDashboardButton` adds a dashboard button.',
-        args=[d.arg('icon', d.T.string, default=':grafana:')]
-      ),
-      withDashboardButton(icon=':grafana:'):
-        self.withActionsMixin([
-          self.actions.newButton(
+      local this = self,
+      commonActions: {
+        '#withDashboardButton':: d.fn(
+          '`withDashboardButton` adds a dashboard button.',
+          args=[d.arg('icon', d.T.string, default=':grafana:')]
+        ),
+        withDashboardButton(icon=':grafana:'):
+          this.withButtonMixin(
             'Dashboard ' + icon,
             '{{ (index .Alerts 0).Annotations.dashboard_url }}',
           ),
-        ]),
 
-      '#withLogsButton':: d.fn(
-        '`withLogsButton` adds a logs button.',
-        args=[d.arg('icon', d.T.string, default=':lokii:')]
-      ),
-      withLogsButton(icon=':lokii:'):
-        self.withActionsMixin([
-          self.actions.newButton(
+        '#withLogsButton':: d.fn(
+          '`withLogsButton` adds a logs button.',
+          args=[d.arg('icon', d.T.string, default=':lokii:')]
+        ),
+        withLogsButton(icon=':lokii:'):
+          this.withButtonMixin(
             'Logs ' + icon,
             '{{ (index .Alerts 0).Annotations.logs_url }}',
           ),
-        ]),
+
+        '#withRunbookButton':: d.fn(
+          '`withRunbookButton` adds a runbook button.',
+          args=[d.arg('icon', d.T.string, default=':green_book:')]
+        ),
+        withRunbookButton(icon=':green_book:'):
+          this.withButtonMixin(
+            'Runbook ' + icon,
+            '{{ (index .Alerts 0).Annotations.runbook_url }}',
+          ),
+
+        '#withSourceButton':: d.fn(
+          '`withSourceButton` adds a source button.',
+          args=[d.arg('icon', d.T.string, default=':information_source:')]
+        ),
+        withSourceButton(icon=':information_source:'):
+          this.withButtonMixin(
+            'Source ' + icon,
+            '{{ (index .Alerts 0).GeneratorURL }}',
+          ),
+
+        '#withSilenceButton':: d.fn(
+          '`withSilenceButton` adds a silence button.',
+          args=[d.arg('icon', d.T.string, default=':no_bell:')]
+        ),
+        withSilenceButton(icon=':no_bell:'):
+          this.withButtonMixin(
+            'Silence ' + icon,
+            '{{ template "__alert_silence_link" . }}',
+          ),
+      },
 
       '#withButtonMixin':: d.fn(
         '`withButtonMixin` adds a generic button with a link.',
@@ -142,8 +179,8 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
           ]
         ),
         newButton(text, url):
-          self.withText(text)
-          + self.withType('button')
+          self.withType('button')
+          + self.withText(text)
           + self.withUrl(url),
       },
     },
@@ -176,5 +213,46 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
         },
       },
     },
+  },
+
+  local commonMatchers(fn) = {
+    alert(alertname): fn('alertname=~"' + alertname + '"'),
+    cluster(cluster): fn('cluster="' + cluster + '"'),
+    team(team): fn('team="' + team + '"'),
+
+    severity(severity): fn('severity=~"' + severity + '"'),
+    critical: self.severity('critical'),
+    warning: self.severity('warning'),
+    info: self.severity('info'),
+
+    job(job): fn(
+      root.util.matchArrayOrString(
+        'job',
+        job
+      )
+    ),
+
+    namespace(namespace): fn(
+      root.util.matchArrayOrString(
+        'namespace',
+        namespace
+      )
+    ),
+
+    exported_namespace(namespace): fn(
+      root.util.matchArrayOrString(
+        'exported_namespace',
+        namespace
+      )
+    ),
+  },
+
+  route+: {
+    matcher: commonMatchers(self.withMatchersMixin),
+  },
+
+  inhibit_rule+: {
+    sourceMatcher: commonMatchers(self.withSourceMatchersMixin),
+    targetMatcher: commonMatchers(self.withTargetMatchersMixin),
   },
 }
