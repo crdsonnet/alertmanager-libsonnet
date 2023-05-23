@@ -4,18 +4,21 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 
   util: {
     '#getReceiverNamesFromRoute':: d.fn(
-      '`getReceiverNamesFromRoute` returns an array of receivers from a route.',
+      '`getReceiverNamesFromRoute` returns a set of receivers from a route.',
       args=[
         d.arg('route', d.T.obj),
       ]
     ),
     getReceiverNamesFromRoute(route):
-      (if 'receiver' in route
-       then [route.receiver]
-       else [])
-      + (if 'routes' in route
-         then std.flattenArrays(std.map(self.getReceiverNamesFromRoute, route.routes))
-         else []),
+      std.set(
+        std.foldr(
+          function(route, acc)
+            acc + self.getReceiverNamesFromRoute(route),
+          std.get(route, 'routes', []),
+          std.prune([std.get(route, 'receiver')])
+        )
+      ),
+
 
     '#getUndefinedReceiversFromRoute':: d.fn(
       '`getUndefinedReceiversFromRoute` returns which receivers are undefined but used in a route.',
@@ -26,7 +29,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
     ),
     getUndefinedReceiversFromRoute(receivers, route):
       std.setDiff(
-        std.set(self.getReceiverNamesFromRoute(route)),
+        self.getReceiverNamesFromRoute(route),
         std.set(std.map(function(r) r.name, receivers)),
       ),
 
@@ -42,7 +45,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       if diff != []
       then error 'Receiver(s) %s found in route but not found in receivers.' % std.toString(diff)
       else
-        local receiverNamesInRoute = std.set(self.getReceiverNamesFromRoute(route));
+        local receiverNamesInRoute = self.getReceiverNamesFromRoute(route);
         std.filter(
           function(r) std.member(receiverNamesInRoute, r.name),
           receivers
