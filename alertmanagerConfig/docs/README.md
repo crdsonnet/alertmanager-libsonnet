@@ -65,6 +65,7 @@ alertmanagerConfig.withRoute([
   * [`fn getReceiverNamesFromRoute(route)`](#fn-utilgetreceivernamesfromroute)
   * [`fn getReceiversForRoute(receivers, route)`](#fn-utilgetreceiversforroute)
   * [`fn getUndefinedReceiversFromRoute(receivers, route)`](#fn-utilgetundefinedreceiversfromroute)
+  * [`fn matchArrayOrString(key, arr)`](#fn-utilmatcharrayorstring)
 
 ## Fields
 
@@ -214,3 +215,11 @@ getUndefinedReceiversFromRoute(receivers, route)
 ```
 
 `getUndefinedReceiversFromRoute` returns which receivers are undefined but used in a route.
+
+#### fn util.matchArrayOrString
+
+```ts
+matchArrayOrString(key, arr)
+```
+
+`matchArrayOrString` creates a matcher string.

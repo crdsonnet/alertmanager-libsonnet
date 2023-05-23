@@ -14,7 +14,6 @@
 * [`fn withCallbackId(value)`](#fn-withcallbackid)
 * [`fn withChannel(value)`](#fn-withchannel)
 * [`fn withColor(value)`](#fn-withcolor)
-* [`fn withDashboardButton(icon=":grafana:")`](#fn-withdashboardbutton)
 * [`fn withFallback(value)`](#fn-withfallback)
 * [`fn withFields(value)`](#fn-withfields)
 * [`fn withFieldsMixin(value)`](#fn-withfieldsmixin)
@@ -25,7 +24,6 @@
 * [`fn withIconUrl(value)`](#fn-withiconurl)
 * [`fn withImageUrl(value)`](#fn-withimageurl)
 * [`fn withLinkNames(value)`](#fn-withlinknames)
-* [`fn withLogsButton(icon=":lokii:")`](#fn-withlogsbutton)
 * [`fn withMrkdwnIn(value)`](#fn-withmrkdwnin)
 * [`fn withMrkdwnInMixin(value)`](#fn-withmrkdwninmixin)
 * [`fn withPretext(value)`](#fn-withpretext)
@@ -64,6 +62,12 @@
   * [`fn withScheme(value)`](#fn-api_urlwithscheme)
   * [`fn withUser(value)`](#fn-api_urlwithuser)
   * [`fn withUserMixin(value)`](#fn-api_urlwithusermixin)
+* [`obj commonActions`](#obj-commonactions)
+  * [`fn withDashboardButton(icon=":grafana:")`](#fn-commonactionswithdashboardbutton)
+  * [`fn withLogsButton(icon=":lokii:")`](#fn-commonactionswithlogsbutton)
+  * [`fn withRunbookButton(icon=":green_book:")`](#fn-commonactionswithrunbookbutton)
+  * [`fn withSilenceButton(icon=":no_bell:")`](#fn-commonactionswithsilencebutton)
+  * [`fn withSourceButton(icon=":information_source:")`](#fn-commonactionswithsourcebutton)
 * [`obj fields`](#obj-fields)
   * [`fn withShort(value)`](#fn-fieldswithshort)
   * [`fn withTitle(value)`](#fn-fieldswithtitle)
@@ -229,14 +233,6 @@ withColor(value)
 
 
 
-### fn withDashboardButton
-
-```ts
-withDashboardButton(icon=":grafana:")
-```
-
-`withDashboardButton` adds a dashboard button.
-
 ### fn withFallback
 
 ```ts
@@ -316,14 +312,6 @@ withLinkNames(value)
 ```
 
 
-
-### fn withLogsButton
-
-```ts
-withLogsButton(icon=":lokii:")
-```
-
-`withLogsButton` adds a logs button.
 
 ### fn withMrkdwnIn
 
@@ -613,6 +601,49 @@ withUserMixin(value)
 ```
 
 
+
+### obj commonActions
+
+
+#### fn commonActions.withDashboardButton
+
+```ts
+withDashboardButton(icon=":grafana:")
+```
+
+`withDashboardButton` adds a dashboard button.
+
+#### fn commonActions.withLogsButton
+
+```ts
+withLogsButton(icon=":lokii:")
+```
+
+`withLogsButton` adds a logs button.
+
+#### fn commonActions.withRunbookButton
+
+```ts
+withRunbookButton(icon=":green_book:")
+```
+
+`withRunbookButton` adds a runbook button.
+
+#### fn commonActions.withSilenceButton
+
+```ts
+withSilenceButton(icon=":no_bell:")
+```
+
+`withSilenceButton` adds a silence button.
+
+#### fn commonActions.withSourceButton
+
+```ts
+withSourceButton(icon=":information_source:")
+```
+
+`withSourceButton` adds a source button.
 
 ### obj fields
 

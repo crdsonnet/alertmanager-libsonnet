@@ -216,15 +216,44 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
   },
 
   local commonMatchers(fn) = {
+    '#alert':: d.fn(
+      '`alert` matches an `alertname`.',
+      args=[d.arg('alertname', d.T.string)]
+    ),
     alert(alertname): fn('alertname=~"' + alertname + '"'),
+
+    '#cluster':: d.fn(
+      '`cluster` matches a cluster.',
+      args=[d.arg('cluster', d.T.string)]
+    ),
     cluster(cluster): fn('cluster="' + cluster + '"'),
+    '#team':: d.fn(
+      '`team` matches a team.',
+      args=[d.arg('team', d.T.string)]
+    ),
     team(team): fn('team="' + team + '"'),
 
+    '#severity':: d.fn(
+      '`severity` matches a severity.',
+      args=[d.arg('severity', d.T.string)]
+    ),
     severity(severity): fn('severity=~"' + severity + '"'),
-    critical: self.severity('critical'),
-    warning: self.severity('warning'),
-    info: self.severity('info'),
 
+    severityMatcher: {
+      '#critical':: d.fn('`critical` matches a critical severity.',),
+      critical(): self.severity('critical'),
+
+      '#warning':: d.fn('`warning` matches a warning severity.',),
+      warning(): self.severity('warning'),
+
+      '#info':: d.fn('`info` matches a info severity.',),
+      info(): self.severity('info'),
+    },
+
+    '#job':: d.fn(
+      '`job` matches one or more jobs.',
+      args=[d.arg('job', d.T.array)]
+    ),
     job(job): fn(
       root.util.matchArrayOrString(
         'job',
@@ -232,6 +261,10 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       )
     ),
 
+    '#namespace':: d.fn(
+      '`namespace` matches one or more namespaces.',
+      args=[d.arg('namespace', d.T.array)]
+    ),
     namespace(namespace): fn(
       root.util.matchArrayOrString(
         'namespace',
@@ -239,6 +272,10 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       )
     ),
 
+    '#exported_namespace':: d.fn(
+      '`exported_namespace` matches one or more exported_namespaces.',
+      args=[d.arg('namespace', d.T.array)]
+    ),
     exported_namespace(namespace): fn(
       root.util.matchArrayOrString(
         'exported_namespace',
@@ -248,14 +285,36 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
   },
 
   route+: {
+    '#new':: d.fn(
+      '`new` instantiates a route.',
+      args=[d.arg('receiver', d.T.string)]
+    ),
     new(receiver):
       self.withReceiver(receiver),
 
+    '#matcher':: d.object.new(
+      |||
+        `matcher` provides a set of common matchers. Adding them will append them to
+        already configured matchers.
+      |||
+    ),
     matcher: commonMatchers(self.withMatchersMixin),
   },
 
   inhibit_rule+: {
+    '#sourceMatcher':: d.object.new(
+      |||
+        `sourceMatcher` provides a set of common matchers. Adding them will append them to
+        already configured matchers.
+      |||
+    ),
     sourceMatcher: commonMatchers(self.withSourceMatchersMixin),
+    '#targetMatcher':: d.object.new(
+      |||
+        `targetMatcher` provides a set of common matchers. Adding them will append them to
+        already configured matchers.
+      |||
+    ),
     targetMatcher: commonMatchers(self.withTargetMatchersMixin),
   },
 }
