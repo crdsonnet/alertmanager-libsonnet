@@ -248,6 +248,9 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
   },
 
   route+: {
+    new(receiver):
+      self.withReceiver(receiver),
+
     matcher: commonMatchers(self.withMatchersMixin),
   },
 
