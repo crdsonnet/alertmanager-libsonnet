@@ -219,6 +219,8 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
   },
 
   local commonMatchers(fn) = {
+    local this = self,
+
     '#alert':: d.fn(
       '`alert` matches an `alertname`.',
       args=[d.arg('alertname', d.T.string)]
@@ -244,13 +246,13 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
 
     severityMatcher: {
       '#critical':: d.fn('`critical` matches a critical severity.',),
-      critical(): self.severity('critical'),
+      critical(): this.severity('critical'),
 
       '#warning':: d.fn('`warning` matches a warning severity.',),
-      warning(): self.severity('warning'),
+      warning(): this.severity('warning'),
 
       '#info':: d.fn('`info` matches a info severity.',),
-      info(): self.severity('info'),
+      info(): this.severity('info'),
     },
 
     '#job':: d.fn(
