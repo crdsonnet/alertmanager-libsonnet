@@ -1,6 +1,6 @@
 local alertmanagerConfig = import 'github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet';
+local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
-local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 
 {
   '#'::
@@ -56,7 +56,7 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
       configMap.new('alertmanager-config')
       + configMap.withData({
         [this.config_file]: k.util.manifestYaml(this.config),
-        'templates.tmpl': alertmanagerConfig.getCommonTemplates(),
+        'templates.tmpl': alertmanagerConfig.util.getCommonTemplates(),
       }),
 
     local container = k.core.v1.container,
@@ -191,10 +191,10 @@ local k = import 'gitub.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
     path:: path,
 
     local container = k.core.v1.container,
-    container::
+    container+:
       container.withArgsMixin([
         '--web.external-url=%s%s' % [
-          self.hostname,
+          hostname,
           self.path,
         ],
       ]),
