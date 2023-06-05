@@ -134,8 +134,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
         self.config_map.metadata.name,
         self.config_path,
       )
-      + k.util.podPriority('critical')
-    ,
+      + statefulset.spec.template.spec.withPriorityClassName('critical'),
 
     local service = k.core.v1.service,
     local servicePort = k.core.v1.servicePort,
