@@ -81,7 +81,10 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       + container.resources.withRequests({
         cpu: '10m',
         memory: '40Mi',
-      }),
+      })
+      + container.readinessProbe.httpGet.withPath('%s-/ready' % self.path)
+      + container.readinessProbe.httpGet.withPort(port)
+    ,
 
     watch_container::
       container.new('watch', watchImage)
