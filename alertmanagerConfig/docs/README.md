@@ -5,7 +5,6 @@
 Additional information about the configuration options can be found in the
 [official docs](https://prometheus.io/docs/alerting/latest/configuration/).
 
-
 ## Install
 
 ```
@@ -35,14 +34,15 @@ alertmanagerConfig.withRoute([
 
 ```
 
+
 ## Subpackages
 
-* [global](alertmanagerConfig/global.md)
-* [inhibit_rule](alertmanagerConfig/inhibit_rule.md)
-* [mute_time_intervals](alertmanagerConfig/mute_time_intervals.md)
-* [receiver](alertmanagerConfig/receiver.md)
-* [route](alertmanagerConfig/route.md)
-* [time_intervals](alertmanagerConfig/time_intervals.md)
+* [global](global.md)
+* [inhibit_rule](inhibit_rule/index.md)
+* [mute_time_intervals](mute_time_intervals/index.md)
+* [receiver](receiver/index.md)
+* [route](route/index.md)
+* [time_intervals](time_intervals/index.md)
 
 ## Index
 
@@ -71,114 +71,156 @@ alertmanagerConfig.withRoute([
 
 ### fn withGlobal
 
-```ts
+```jsonnet
 withGlobal(value)
 ```
 
+PARAMETERS:
+
+* **value** (`object`)
 
 
 ### fn withGlobalMixin
 
-```ts
+```jsonnet
 withGlobalMixin(value)
 ```
 
+PARAMETERS:
+
+* **value** (`object`)
 
 
 ### fn withInhibitRules
 
-```ts
+```jsonnet
 withInhibitRules(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withInhibitRulesMixin
 
-```ts
+```jsonnet
 withInhibitRulesMixin(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withMuteTimeIntervals
 
-```ts
+```jsonnet
 withMuteTimeIntervals(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withMuteTimeIntervalsMixin
 
-```ts
+```jsonnet
 withMuteTimeIntervalsMixin(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withReceivers
 
-```ts
+```jsonnet
 withReceivers(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withReceiversMixin
 
-```ts
+```jsonnet
 withReceiversMixin(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withRoute
 
-```ts
+```jsonnet
 withRoute(value)
 ```
 
+PARAMETERS:
+
+* **value** (`object`)
 
 
 ### fn withRouteMixin
 
-```ts
+```jsonnet
 withRouteMixin(value)
 ```
 
+PARAMETERS:
+
+* **value** (`object`)
 
 
 ### fn withTemplates
 
-```ts
+```jsonnet
 withTemplates(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withTemplatesMixin
 
-```ts
+```jsonnet
 withTemplatesMixin(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withTimeIntervals
 
-```ts
+```jsonnet
 withTimeIntervals(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### fn withTimeIntervalsMixin
 
-```ts
+```jsonnet
 withTimeIntervalsMixin(value)
 ```
 
+PARAMETERS:
+
+* **value** (`array`)
 
 
 ### obj util
@@ -186,40 +228,56 @@ withTimeIntervalsMixin(value)
 
 #### fn util.getCommonTemplates
 
-```ts
-getCommonTemplates()
+```jsonnet
+util.getCommonTemplates()
 ```
+
 
 `getCommonTemplates` provides a set of common templates to use with Alertmanager.
-
 #### fn util.getReceiverNamesFromRoute
 
-```ts
-getReceiverNamesFromRoute(route)
+```jsonnet
+util.getReceiverNamesFromRoute(route)
 ```
+
+PARAMETERS:
+
+* **route** (`object`)
 
 `getReceiverNamesFromRoute` returns a set of receivers from a route.
-
 #### fn util.getReceiversForRoute
 
-```ts
-getReceiversForRoute(receivers, route)
+```jsonnet
+util.getReceiversForRoute(receivers, route)
 ```
+
+PARAMETERS:
+
+* **receivers** (`array`)
+* **route** (`object`)
 
 `getReceiversForRoute` returns the subset of receivers actually used in given route.
-
 #### fn util.getUndefinedReceiversFromRoute
 
-```ts
-getUndefinedReceiversFromRoute(receivers, route)
+```jsonnet
+util.getUndefinedReceiversFromRoute(receivers, route)
 ```
+
+PARAMETERS:
+
+* **receivers** (`array`)
+* **route** (`object`)
 
 `getUndefinedReceiversFromRoute` returns which receivers are undefined but used in a route.
-
 #### fn util.matchArrayOrString
 
-```ts
-matchArrayOrString(key, arr)
+```jsonnet
+util.matchArrayOrString(key, arr)
 ```
+
+PARAMETERS:
+
+* **key** (`string`)
+* **arr** (`array`)
 
 `matchArrayOrString` creates a matcher string.

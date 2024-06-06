@@ -6,7 +6,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
     '#getReceiverNamesFromRoute':: d.fn(
       '`getReceiverNamesFromRoute` returns a set of receivers from a route.',
       args=[
-        d.arg('route', d.T.obj),
+        d.arg('route', d.T.object),
       ]
     ),
     getReceiverNamesFromRoute(route):
@@ -24,7 +24,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       '`getUndefinedReceiversFromRoute` returns which receivers are undefined but used in a route.',
       args=[
         d.arg('receivers', d.T.array),
-        d.arg('route', d.T.obj),
+        d.arg('route', d.T.object),
       ]
     ),
     getUndefinedReceiversFromRoute(receivers, route):
@@ -37,7 +37,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       '`getReceiversForRoute` returns the subset of receivers actually used in given route.',
       args=[
         d.arg('receivers', d.T.array),
-        d.arg('route', d.T.obj),
+        d.arg('route', d.T.object),
       ]
     ),
     getReceiversForRoute(receivers, route):
