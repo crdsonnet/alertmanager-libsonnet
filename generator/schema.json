@@ -23,6 +23,9 @@
         "username": {
           "type": "string"
         },
+        "username_file": {
+          "type": "string"
+        },
         "password": {
           "type": "string"
         },
@@ -107,6 +110,9 @@
         },
         "webhook_url": {
           "$ref": "#/$defs/SecretURL"
+        },
+        "webhook_url_file": {
+          "type": "string"
         },
         "title": {
           "type": "string"
@@ -281,9 +287,6 @@
         "bearer_token_file": {
           "type": "string"
         },
-        "proxy_url": {
-          "$ref": "#/$defs/URL"
-        },
         "tls_config": {
           "$ref": "#/$defs/TLSConfig"
         },
@@ -292,6 +295,18 @@
         },
         "enable_http2": {
           "type": "boolean"
+        },
+        "proxy_url": {
+          "$ref": "#/$defs/URL"
+        },
+        "no_proxy": {
+          "type": "string"
+        },
+        "proxy_from_environment": {
+          "type": "boolean"
+        },
+        "proxy_connect_header": {
+          "$ref": "#/$defs/Header"
         }
       },
       "additionalProperties": false,
@@ -300,6 +315,17 @@
         "follow_redirects",
         "enable_http2"
       ]
+    },
+    "Header": {
+      "patternProperties": {
+        ".*": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "HostPort": {
       "properties": {
@@ -364,6 +390,36 @@
       "properties": {},
       "additionalProperties": false,
       "type": "object"
+    },
+    "MSTeamsConfig": {
+      "properties": {
+        "send_resolved": {
+          "type": "boolean"
+        },
+        "http_config": {
+          "$ref": "#/$defs/HTTPClientConfig"
+        },
+        "webhook_url": {
+          "$ref": "#/$defs/SecretURL"
+        },
+        "webhook_url_file": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "send_resolved"
+      ]
     },
     "MatchRegexps": {
       "patternProperties": {
@@ -462,11 +518,20 @@
           },
           "type": "object"
         },
+        "TLSConfig": {
+          "$ref": "#/$defs/TLSConfig"
+        },
         "proxy_url": {
           "$ref": "#/$defs/URL"
         },
-        "TLSConfig": {
-          "$ref": "#/$defs/TLSConfig"
+        "no_proxy": {
+          "type": "string"
+        },
+        "proxy_from_environment": {
+          "type": "boolean"
+        },
+        "proxy_connect_header": {
+          "$ref": "#/$defs/Header"
         }
       },
       "additionalProperties": false,
@@ -674,7 +739,13 @@
         "user_key": {
           "type": "string"
         },
+        "user_key_file": {
+          "type": "string"
+        },
         "token": {
+          "type": "string"
+        },
+        "token_file": {
           "type": "string"
         },
         "title": {
@@ -689,6 +760,9 @@
         "url_title": {
           "type": "string"
         },
+        "device": {
+          "type": "string"
+        },
         "sound": {
           "type": "string"
         },
@@ -699,6 +773,9 @@
           "type": "integer"
         },
         "expire": {
+          "type": "integer"
+        },
+        "ttl": {
           "type": "integer"
         },
         "html": {
@@ -785,6 +862,12 @@
         "webex_configs": {
           "items": {
             "$ref": "#/$defs/WebexConfig"
+          },
+          "type": "array"
+        },
+        "msteams_configs": {
+          "items": {
+            "$ref": "#/$defs/MSTeamsConfig"
           },
           "type": "array"
         }
@@ -1133,6 +1216,15 @@
     },
     "TLSConfig": {
       "properties": {
+        "ca": {
+          "type": "string"
+        },
+        "cert": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
         "ca_file": {
           "type": "string"
         },
@@ -1173,6 +1265,9 @@
           "$ref": "#/$defs/URL"
         },
         "token": {
+          "type": "string"
+        },
+        "token_file": {
           "type": "string"
         },
         "chat": {
@@ -1393,7 +1488,10 @@
           "$ref": "#/$defs/HTTPClientConfig"
         },
         "url": {
-          "$ref": "#/$defs/URL"
+          "$ref": "#/$defs/SecretURL"
+        },
+        "url_file": {
+          "type": "string"
         },
         "max_alerts": {
           "type": "integer"
@@ -1404,6 +1502,7 @@
       "required": [
         "send_resolved",
         "url",
+        "url_file",
         "max_alerts"
       ]
     },

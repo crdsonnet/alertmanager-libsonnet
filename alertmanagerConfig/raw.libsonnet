@@ -120,6 +120,16 @@
                   },
                 },
               },
+              '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withUsernameFile(value): {
+                global+: {
+                  http_config+: {
+                    basic_auth+: {
+                      username_file: value,
+                    },
+                  },
+                },
+              },
             },
           '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
           withBearerToken(value): {
@@ -150,6 +160,14 @@
             global+: {
               http_config+: {
                 follow_redirects: value,
+              },
+            },
+          },
+          '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withNoProxy(value): {
+            global+: {
+              http_config+: {
+                no_proxy: value,
               },
             },
           },
@@ -193,6 +211,18 @@
               },
               TLSConfig+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    global+: {
+                      http_config+: {
+                        oauth2+: {
+                          TLSConfig+: {
+                            ca: value,
+                          },
+                        },
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     global+: {
@@ -200,6 +230,18 @@
                         oauth2+: {
                           TLSConfig+: {
                             ca_file: value,
+                          },
+                        },
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    global+: {
+                      http_config+: {
+                        oauth2+: {
+                          TLSConfig+: {
+                            cert: value,
                           },
                         },
                       },
@@ -224,6 +266,18 @@
                         oauth2+: {
                           TLSConfig+: {
                             insecure_skip_verify: value,
+                          },
+                        },
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    global+: {
+                      http_config+: {
+                        oauth2+: {
+                          TLSConfig+: {
+                            key: value,
                           },
                         },
                       },
@@ -324,6 +378,46 @@
                   http_config+: {
                     oauth2+: {
                       endpoint_params+: value,
+                    },
+                  },
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                global+: {
+                  http_config+: {
+                    oauth2+: {
+                      no_proxy: value,
+                    },
+                  },
+                },
+              },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                global+: {
+                  http_config+: {
+                    oauth2+: {
+                      proxy_connect_header: value,
+                    },
+                  },
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                global+: {
+                  http_config+: {
+                    oauth2+: {
+                      proxy_connect_header+: value,
+                    },
+                  },
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                global+: {
+                  http_config+: {
+                    oauth2+: {
+                      proxy_from_environment: value,
                     },
                   },
                 },
@@ -532,6 +626,30 @@
                 },
               },
             },
+          '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withProxyConnectHeader(value): {
+            global+: {
+              http_config+: {
+                proxy_connect_header: value,
+              },
+            },
+          },
+          '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withProxyConnectHeaderMixin(value): {
+            global+: {
+              http_config+: {
+                proxy_connect_header+: value,
+              },
+            },
+          },
+          '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+          withProxyFromEnvironment(value=true): {
+            global+: {
+              http_config+: {
+                proxy_from_environment: value,
+              },
+            },
+          },
           '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
           withProxyUrl(value): {
             global+: {
@@ -689,12 +807,32 @@
           },
           tls_config+:
             {
+              '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withCa(value): {
+                global+: {
+                  http_config+: {
+                    tls_config+: {
+                      ca: value,
+                    },
+                  },
+                },
+              },
               '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withCaFile(value): {
                 global+: {
                   http_config+: {
                     tls_config+: {
                       ca_file: value,
+                    },
+                  },
+                },
+              },
+              '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withCert(value): {
+                global+: {
+                  http_config+: {
+                    tls_config+: {
+                      cert: value,
                     },
                   },
                 },
@@ -715,6 +853,16 @@
                   http_config+: {
                     tls_config+: {
                       insecure_skip_verify: value,
+                    },
+                  },
+                },
+              },
+              '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withKey(value): {
+                global+: {
+                  http_config+: {
+                    tls_config+: {
+                      key: value,
                     },
                   },
                 },
@@ -2089,6 +2237,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -2112,6 +2268,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -2146,12 +2308,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -2172,6 +2354,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -2254,6 +2446,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -2427,6 +2651,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -2552,11 +2794,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -2573,6 +2831,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -2705,6 +2971,10 @@
                 },
               },
             },
+          '#withWebhookUrlFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withWebhookUrlFile(value): {
+            webhook_url_file: value,
+          },
         },
       '#withEmailConfigs': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
       withEmailConfigs(value): {
@@ -2808,10 +3078,22 @@
           },
           tls_config+:
             {
+              '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withCa(value): {
+                tls_config+: {
+                  ca: value,
+                },
+              },
               '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withCaFile(value): {
                 tls_config+: {
                   ca_file: value,
+                },
+              },
+              '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withCert(value): {
+                tls_config+: {
+                  cert: value,
                 },
               },
               '#withCertFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
@@ -2824,6 +3106,12 @@
               withInsecureSkipVerify(value=true): {
                 tls_config+: {
                   insecure_skip_verify: value,
+                },
+              },
+              '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withKey(value): {
+                tls_config+: {
+                  key: value,
                 },
               },
               '#withKeyFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
@@ -2854,6 +3142,853 @@
           '#withTo': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
           withTo(value): {
             to: value,
+          },
+        },
+      '#withMsteamsConfigs': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+      withMsteamsConfigs(value): {
+        msteams_configs:
+          (if std.isArray(value)
+           then value
+           else [value]),
+      },
+      '#withMsteamsConfigsMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+      withMsteamsConfigsMixin(value): {
+        msteams_configs+:
+          (if std.isArray(value)
+           then value
+           else [value]),
+      },
+      msteams_configs+:
+        {
+          '#': { help: '', name: 'msteams_configs' },
+          '#withHttpConfig': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withHttpConfig(value): {
+            http_config: value,
+          },
+          '#withHttpConfigMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withHttpConfigMixin(value): {
+            http_config+: value,
+          },
+          http_config+:
+            {
+              '#withAuthorization': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withAuthorization(value): {
+                http_config+: {
+                  authorization: value,
+                },
+              },
+              '#withAuthorizationMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withAuthorizationMixin(value): {
+                http_config+: {
+                  authorization+: value,
+                },
+              },
+              authorization+:
+                {
+                  '#withCredentials': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCredentials(value): {
+                    http_config+: {
+                      authorization+: {
+                        credentials: value,
+                      },
+                    },
+                  },
+                  '#withCredentialsFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCredentialsFile(value): {
+                    http_config+: {
+                      authorization+: {
+                        credentials_file: value,
+                      },
+                    },
+                  },
+                  '#withType': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withType(value): {
+                    http_config+: {
+                      authorization+: {
+                        type: value,
+                      },
+                    },
+                  },
+                },
+              '#withBasicAuth': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withBasicAuth(value): {
+                http_config+: {
+                  basic_auth: value,
+                },
+              },
+              '#withBasicAuthMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withBasicAuthMixin(value): {
+                http_config+: {
+                  basic_auth+: value,
+                },
+              },
+              basic_auth+:
+                {
+                  '#withPassword': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withPassword(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        password: value,
+                      },
+                    },
+                  },
+                  '#withPasswordFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withPasswordFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        password_file: value,
+                      },
+                    },
+                  },
+                  '#withUsername': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsername(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username: value,
+                      },
+                    },
+                  },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
+                },
+              '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withBearerToken(value): {
+                http_config+: {
+                  bearer_token: value,
+                },
+              },
+              '#withBearerTokenFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withBearerTokenFile(value): {
+                http_config+: {
+                  bearer_token_file: value,
+                },
+              },
+              '#withEnableHttp2': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withEnableHttp2(value=true): {
+                http_config+: {
+                  enable_http2: value,
+                },
+              },
+              '#withFollowRedirects': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withFollowRedirects(value=true): {
+                http_config+: {
+                  follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
+                },
+              },
+              '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withOauth2(value): {
+                http_config+: {
+                  oauth2: value,
+                },
+              },
+              '#withOauth2Mixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withOauth2Mixin(value): {
+                http_config+: {
+                  oauth2+: value,
+                },
+              },
+              oauth2+:
+                {
+                  '#withTLSConfig': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withTLSConfig(value): {
+                    http_config+: {
+                      oauth2+: {
+                        TLSConfig: value,
+                      },
+                    },
+                  },
+                  '#withTLSConfigMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withTLSConfigMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        TLSConfig+: value,
+                      },
+                    },
+                  },
+                  TLSConfig+:
+                    {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCaFile(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCertFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCertFile(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withInsecureSkipVerify': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                      withInsecureSkipVerify(value=true): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKeyFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKeyFile(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withMaxVersion': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+                      withMaxVersion(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              max_version: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withMinVersion': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+                      withMinVersion(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              min_version: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withServerName': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withServerName(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              server_name: value,
+                            },
+                          },
+                        },
+                      },
+                    },
+                  '#withClientId': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withClientId(value): {
+                    http_config+: {
+                      oauth2+: {
+                        client_id: value,
+                      },
+                    },
+                  },
+                  '#withClientSecret': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withClientSecret(value): {
+                    http_config+: {
+                      oauth2+: {
+                        client_secret: value,
+                      },
+                    },
+                  },
+                  '#withClientSecretFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withClientSecretFile(value): {
+                    http_config+: {
+                      oauth2+: {
+                        client_secret_file: value,
+                      },
+                    },
+                  },
+                  '#withEndpointParams': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withEndpointParams(value): {
+                    http_config+: {
+                      oauth2+: {
+                        endpoint_params: value,
+                      },
+                    },
+                  },
+                  '#withEndpointParamsMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withEndpointParamsMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
+                      },
+                    },
+                  },
+                  '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyUrl(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_url: value,
+                      },
+                    },
+                  },
+                  '#withProxyUrlMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyUrlMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_url+: value,
+                      },
+                    },
+                  },
+                  proxy_url+:
+                    {
+                      '#withForceQuery': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                      withForceQuery(value=true): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              ForceQuery: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withFragment': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withFragment(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              Fragment: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withHost': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withHost(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              Host: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withOmitHost': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                      withOmitHost(value=true): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              OmitHost: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withOpaque': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withOpaque(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              Opaque: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withPath': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withPath(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              Path: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withRawFragment': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withRawFragment(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              RawFragment: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withRawPath': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withRawPath(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              RawPath: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withRawQuery': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withRawQuery(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              RawQuery: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withScheme': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withScheme(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              Scheme: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withUser': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                      withUser(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              User: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withUserMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                      withUserMixin(value): {
+                        http_config+: {
+                          oauth2+: {
+                            proxy_url+: {
+                              User+: value,
+                            },
+                          },
+                        },
+                      },
+                    },
+                  '#withScopes': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+                  withScopes(value): {
+                    http_config+: {
+                      oauth2+: {
+                        scopes:
+                          (if std.isArray(value)
+                           then value
+                           else [value]),
+                      },
+                    },
+                  },
+                  '#withScopesMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+                  withScopesMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        scopes+:
+                          (if std.isArray(value)
+                           then value
+                           else [value]),
+                      },
+                    },
+                  },
+                  '#withTokenUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withTokenUrl(value): {
+                    http_config+: {
+                      oauth2+: {
+                        token_url: value,
+                      },
+                    },
+                  },
+                },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
+              '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyUrl(value): {
+                http_config+: {
+                  proxy_url: value,
+                },
+              },
+              '#withProxyUrlMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyUrlMixin(value): {
+                http_config+: {
+                  proxy_url+: value,
+                },
+              },
+              proxy_url+:
+                {
+                  '#withForceQuery': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withForceQuery(value=true): {
+                    http_config+: {
+                      proxy_url+: {
+                        ForceQuery: value,
+                      },
+                    },
+                  },
+                  '#withFragment': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withFragment(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        Fragment: value,
+                      },
+                    },
+                  },
+                  '#withHost': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withHost(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        Host: value,
+                      },
+                    },
+                  },
+                  '#withOmitHost': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withOmitHost(value=true): {
+                    http_config+: {
+                      proxy_url+: {
+                        OmitHost: value,
+                      },
+                    },
+                  },
+                  '#withOpaque': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withOpaque(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        Opaque: value,
+                      },
+                    },
+                  },
+                  '#withPath': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withPath(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        Path: value,
+                      },
+                    },
+                  },
+                  '#withRawFragment': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withRawFragment(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        RawFragment: value,
+                      },
+                    },
+                  },
+                  '#withRawPath': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withRawPath(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        RawPath: value,
+                      },
+                    },
+                  },
+                  '#withRawQuery': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withRawQuery(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        RawQuery: value,
+                      },
+                    },
+                  },
+                  '#withScheme': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withScheme(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        Scheme: value,
+                      },
+                    },
+                  },
+                  '#withUser': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withUser(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        User: value,
+                      },
+                    },
+                  },
+                  '#withUserMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withUserMixin(value): {
+                    http_config+: {
+                      proxy_url+: {
+                        User+: value,
+                      },
+                    },
+                  },
+                },
+              '#withTlsConfig': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withTlsConfig(value): {
+                http_config+: {
+                  tls_config: value,
+                },
+              },
+              '#withTlsConfigMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withTlsConfigMixin(value): {
+                http_config+: {
+                  tls_config+: value,
+                },
+              },
+              tls_config+:
+                {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
+                  '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCaFile(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
+                      },
+                    },
+                  },
+                  '#withCertFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCertFile(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert_file: value,
+                      },
+                    },
+                  },
+                  '#withInsecureSkipVerify': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withInsecureSkipVerify(value=true): {
+                    http_config+: {
+                      tls_config+: {
+                        insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
+                      },
+                    },
+                  },
+                  '#withKeyFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKeyFile(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key_file: value,
+                      },
+                    },
+                  },
+                  '#withMaxVersion': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+                  withMaxVersion(value): {
+                    http_config+: {
+                      tls_config+: {
+                        max_version: value,
+                      },
+                    },
+                  },
+                  '#withMinVersion': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+                  withMinVersion(value): {
+                    http_config+: {
+                      tls_config+: {
+                        min_version: value,
+                      },
+                    },
+                  },
+                  '#withServerName': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withServerName(value): {
+                    http_config+: {
+                      tls_config+: {
+                        server_name: value,
+                      },
+                    },
+                  },
+                },
+            },
+          '#withSendResolved': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+          withSendResolved(value=true): {
+            send_resolved: value,
+          },
+          '#withSummary': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withSummary(value): {
+            summary: value,
+          },
+          '#withText': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withText(value): {
+            text: value,
+          },
+          '#withTitle': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withTitle(value): {
+            title: value,
+          },
+          '#withWebhookUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withWebhookUrl(value): {
+            webhook_url: value,
+          },
+          '#withWebhookUrlMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withWebhookUrlMixin(value): {
+            webhook_url+: value,
+          },
+          webhook_url+:
+            {
+              '#withForceQuery': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withForceQuery(value=true): {
+                webhook_url+: {
+                  ForceQuery: value,
+                },
+              },
+              '#withFragment': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withFragment(value): {
+                webhook_url+: {
+                  Fragment: value,
+                },
+              },
+              '#withHost': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withHost(value): {
+                webhook_url+: {
+                  Host: value,
+                },
+              },
+              '#withOmitHost': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withOmitHost(value=true): {
+                webhook_url+: {
+                  OmitHost: value,
+                },
+              },
+              '#withOpaque': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withOpaque(value): {
+                webhook_url+: {
+                  Opaque: value,
+                },
+              },
+              '#withPath': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withPath(value): {
+                webhook_url+: {
+                  Path: value,
+                },
+              },
+              '#withRawFragment': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withRawFragment(value): {
+                webhook_url+: {
+                  RawFragment: value,
+                },
+              },
+              '#withRawPath': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withRawPath(value): {
+                webhook_url+: {
+                  RawPath: value,
+                },
+              },
+              '#withRawQuery': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withRawQuery(value): {
+                webhook_url+: {
+                  RawQuery: value,
+                },
+              },
+              '#withScheme': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withScheme(value): {
+                webhook_url+: {
+                  Scheme: value,
+                },
+              },
+              '#withUser': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withUser(value): {
+                webhook_url+: {
+                  User: value,
+                },
+              },
+              '#withUserMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withUserMixin(value): {
+                webhook_url+: {
+                  User+: value,
+                },
+              },
+            },
+          '#withWebhookUrlFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withWebhookUrlFile(value): {
+            webhook_url_file: value,
           },
         },
       '#withName': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
@@ -3075,6 +4210,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -3098,6 +4241,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -3132,12 +4281,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -3158,6 +4327,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -3240,6 +4419,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -3413,6 +4624,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -3538,11 +4767,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -3559,6 +4804,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -3795,6 +5048,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -3818,6 +5079,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -3852,12 +5119,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -3878,6 +5165,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -3960,6 +5257,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -4133,6 +5462,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -4258,11 +5605,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -4279,6 +5642,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -4501,6 +5872,10 @@
       pushover_configs+:
         {
           '#': { help: '', name: 'pushover_configs' },
+          '#withDevice': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withDevice(value): {
+            device: value,
+          },
           '#withExpire': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
           withExpire(value): {
             expire: value,
@@ -4596,6 +5971,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -4619,6 +6002,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -4653,12 +6042,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -4679,6 +6088,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -4761,6 +6180,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -4934,6 +6385,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -5059,11 +6528,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -5080,6 +6565,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -5145,6 +6638,14 @@
           withToken(value): {
             token: value,
           },
+          '#withTokenFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withTokenFile(value): {
+            token_file: value,
+          },
+          '#withTtl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+          withTtl(value): {
+            ttl: value,
+          },
           '#withUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
           withUrl(value): {
             url: value,
@@ -5156,6 +6657,10 @@
           '#withUserKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
           withUserKey(value): {
             user_key: value,
+          },
+          '#withUserKeyFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withUserKeyFile(value): {
+            user_key_file: value,
           },
         },
       '#withSlackConfigs': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
@@ -5476,6 +6981,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -5499,6 +7012,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -5533,12 +7052,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -5559,6 +7098,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -5641,6 +7190,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -5814,6 +7395,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -5939,11 +7538,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -5960,6 +7575,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -6176,6 +7799,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -6199,6 +7830,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -6233,12 +7870,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -6259,6 +7916,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -6341,6 +8008,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -6514,6 +8213,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -6639,11 +8356,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -6660,6 +8393,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -6958,6 +8699,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -6981,6 +8730,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -7015,12 +8770,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -7041,6 +8816,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -7123,6 +8908,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -7296,6 +9113,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -7421,11 +9256,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -7442,6 +9293,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -7494,6 +9353,10 @@
           '#withToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
           withToken(value): {
             token: value,
+          },
+          '#withTokenFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withTokenFile(value): {
+            token_file: value,
           },
         },
       '#withVictoropsConfigs': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
@@ -7703,6 +9566,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -7726,6 +9597,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -7760,12 +9637,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -7786,6 +9683,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -7868,6 +9775,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -8041,6 +9980,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -8166,11 +10123,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -8187,6 +10160,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -8432,6 +10413,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -8455,6 +10444,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -8489,12 +10484,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -8515,6 +10530,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -8597,6 +10622,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -8770,6 +10827,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -8895,11 +10970,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -8916,6 +11007,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -9070,6 +11169,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -9093,6 +11200,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -9127,12 +11240,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -9153,6 +11286,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -9235,6 +11378,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -9408,6 +11583,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -9533,11 +11726,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -9554,6 +11763,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
@@ -9682,6 +11899,10 @@
                 },
               },
             },
+          '#withUrlFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+          withUrlFile(value): {
+            url_file: value,
+          },
         },
       '#withWechatConfigs': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
       withWechatConfigs(value): {
@@ -9882,6 +12103,14 @@
                       },
                     },
                   },
+                  '#withUsernameFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withUsernameFile(value): {
+                    http_config+: {
+                      basic_auth+: {
+                        username_file: value,
+                      },
+                    },
+                  },
                 },
               '#withBearerToken': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
               withBearerToken(value): {
@@ -9905,6 +12134,12 @@
               withFollowRedirects(value=true): {
                 http_config+: {
                   follow_redirects: value,
+                },
+              },
+              '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+              withNoProxy(value): {
+                http_config+: {
+                  no_proxy: value,
                 },
               },
               '#withOauth2': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
@@ -9939,12 +12174,32 @@
                   },
                   TLSConfig+:
                     {
+                      '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCa(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              ca: value,
+                            },
+                          },
+                        },
+                      },
                       '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                       withCaFile(value): {
                         http_config+: {
                           oauth2+: {
                             TLSConfig+: {
                               ca_file: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withCert(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              cert: value,
                             },
                           },
                         },
@@ -9965,6 +12220,16 @@
                           oauth2+: {
                             TLSConfig+: {
                               insecure_skip_verify: value,
+                            },
+                          },
+                        },
+                      },
+                      '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                      withKey(value): {
+                        http_config+: {
+                          oauth2+: {
+                            TLSConfig+: {
+                              key: value,
                             },
                           },
                         },
@@ -10047,6 +12312,38 @@
                     http_config+: {
                       oauth2+: {
                         endpoint_params+: value,
+                      },
+                    },
+                  },
+                  '#withNoProxy': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withNoProxy(value): {
+                    http_config+: {
+                      oauth2+: {
+                        no_proxy: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeader(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header: value,
+                      },
+                    },
+                  },
+                  '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+                  withProxyConnectHeaderMixin(value): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_connect_header+: value,
+                      },
+                    },
+                  },
+                  '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+                  withProxyFromEnvironment(value=true): {
+                    http_config+: {
+                      oauth2+: {
+                        proxy_from_environment: value,
                       },
                     },
                   },
@@ -10220,6 +12517,24 @@
                     },
                   },
                 },
+              '#withProxyConnectHeader': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeader(value): {
+                http_config+: {
+                  proxy_connect_header: value,
+                },
+              },
+              '#withProxyConnectHeaderMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+              withProxyConnectHeaderMixin(value): {
+                http_config+: {
+                  proxy_connect_header+: value,
+                },
+              },
+              '#withProxyFromEnvironment': { 'function': { args: [{ default: true, enums: null, name: 'value', type: ['boolean'] }], help: '' } },
+              withProxyFromEnvironment(value=true): {
+                http_config+: {
+                  proxy_from_environment: value,
+                },
+              },
               '#withProxyUrl': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
               withProxyUrl(value): {
                 http_config+: {
@@ -10345,11 +12660,27 @@
               },
               tls_config+:
                 {
+                  '#withCa': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCa(value): {
+                    http_config+: {
+                      tls_config+: {
+                        ca: value,
+                      },
+                    },
+                  },
                   '#withCaFile': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
                   withCaFile(value): {
                     http_config+: {
                       tls_config+: {
                         ca_file: value,
+                      },
+                    },
+                  },
+                  '#withCert': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withCert(value): {
+                    http_config+: {
+                      tls_config+: {
+                        cert: value,
                       },
                     },
                   },
@@ -10366,6 +12697,14 @@
                     http_config+: {
                       tls_config+: {
                         insecure_skip_verify: value,
+                      },
+                    },
+                  },
+                  '#withKey': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+                  withKey(value): {
+                    http_config+: {
+                      tls_config+: {
+                        key: value,
                       },
                     },
                   },
