@@ -5,7 +5,6 @@ local crdsonnet = import 'github.com/crdsonnet/crdsonnet/crdsonnet/main.libsonne
 local schema =
   (import './schema.json')
   + {
-    //'$ref': '#/$defs/Route',
     '$defs'+: {
       Route+: {
         properties+: {
