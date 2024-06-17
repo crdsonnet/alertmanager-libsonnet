@@ -3,7 +3,7 @@
 This project provides a jsonnet library for configuring
 [alertmanager](https://github.com/prometheus/alertmanager) and installing it on Kubernetes.
 
-The alertmanagerConfig library is generated at runtime from a JSON schema derived from the
+The alertmanagerConfig library is generated from a JSON schema derived from the
 Go structs in Alertmanager. The alertmanagerKube library is manually curated.
 
 ## Example

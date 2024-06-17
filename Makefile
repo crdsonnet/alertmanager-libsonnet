@@ -5,9 +5,14 @@
 # https://github.com/CertainLach/jrsonnet/issues/108
 JSONNET_BIN ?= jrsonnet
 
+generate:
+	${JSONNET_BIN} -J generator/vendor -S -c -m alertmanagerConfig/ generator/main.jsonnet
+	jsonnetfmt -i alertmanagerConfig/raw.libsonnet
+	jsonnetfmt -i alertmanagerConfig/rawRoute.libsonnet
 
-alertmanagerConfig/schema.json:
-	@cd go && go run . > ../alertmanagerConfig/schema.json
+
+generator/schema.json:
+	@cd go && go run . > ../generator/schema.json
 
 .PHONY: docs
 docs: alertmanagerKube/docs alertmanagerConfig/docs

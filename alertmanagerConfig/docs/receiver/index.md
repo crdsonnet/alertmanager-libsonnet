@@ -6,6 +6,7 @@
 
 * [discord](discord.md)
 * [email](email.md)
+* [msteams](msteams.md)
 * [opsgenie](opsgenie/index.md)
 * [pagerduty](pagerduty/index.md)
 * [pushover](pushover.md)
@@ -24,6 +25,8 @@
 * [`fn withDiscordConfigsMixin(value)`](#fn-withdiscordconfigsmixin)
 * [`fn withEmailConfigs(value)`](#fn-withemailconfigs)
 * [`fn withEmailConfigsMixin(value)`](#fn-withemailconfigsmixin)
+* [`fn withMsteamsConfigs(value)`](#fn-withmsteamsconfigs)
+* [`fn withMsteamsConfigsMixin(value)`](#fn-withmsteamsconfigsmixin)
 * [`fn withName(value)`](#fn-withname)
 * [`fn withOpsgenieConfigs(value)`](#fn-withopsgenieconfigs)
 * [`fn withOpsgenieConfigsMixin(value)`](#fn-withopsgenieconfigsmixin)
@@ -96,6 +99,28 @@ PARAMETERS:
 
 ```jsonnet
 withEmailConfigsMixin(value)
+```
+
+PARAMETERS:
+
+* **value** (`array`)
+
+
+### fn withMsteamsConfigs
+
+```jsonnet
+withMsteamsConfigs(value)
+```
+
+PARAMETERS:
+
+* **value** (`array`)
+
+
+### fn withMsteamsConfigsMixin
+
+```jsonnet
+withMsteamsConfigsMixin(value)
 ```
 
 PARAMETERS:

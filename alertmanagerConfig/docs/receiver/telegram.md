@@ -14,6 +14,7 @@
 * [`fn withParseMode(value)`](#fn-withparsemode)
 * [`fn withSendResolved(value=true)`](#fn-withsendresolved)
 * [`fn withToken(value)`](#fn-withtoken)
+* [`fn withTokenFile(value)`](#fn-withtokenfile)
 * [`obj api_url`](#obj-api_url)
   * [`fn withForceQuery(value=true)`](#fn-api_urlwithforcequery)
   * [`fn withFragment(value)`](#fn-api_urlwithfragment)
@@ -36,8 +37,12 @@
   * [`fn withBearerTokenFile(value)`](#fn-http_configwithbearertokenfile)
   * [`fn withEnableHttp2(value=true)`](#fn-http_configwithenablehttp2)
   * [`fn withFollowRedirects(value=true)`](#fn-http_configwithfollowredirects)
+  * [`fn withNoProxy(value)`](#fn-http_configwithnoproxy)
   * [`fn withOauth2(value)`](#fn-http_configwithoauth2)
   * [`fn withOauth2Mixin(value)`](#fn-http_configwithoauth2mixin)
+  * [`fn withProxyConnectHeader(value)`](#fn-http_configwithproxyconnectheader)
+  * [`fn withProxyConnectHeaderMixin(value)`](#fn-http_configwithproxyconnectheadermixin)
+  * [`fn withProxyFromEnvironment(value=true)`](#fn-http_configwithproxyfromenvironment)
   * [`fn withProxyUrl(value)`](#fn-http_configwithproxyurl)
   * [`fn withProxyUrlMixin(value)`](#fn-http_configwithproxyurlmixin)
   * [`fn withTlsConfig(value)`](#fn-http_configwithtlsconfig)
@@ -50,12 +55,17 @@
     * [`fn withPassword(value)`](#fn-http_configbasic_authwithpassword)
     * [`fn withPasswordFile(value)`](#fn-http_configbasic_authwithpasswordfile)
     * [`fn withUsername(value)`](#fn-http_configbasic_authwithusername)
+    * [`fn withUsernameFile(value)`](#fn-http_configbasic_authwithusernamefile)
   * [`obj oauth2`](#obj-http_configoauth2)
     * [`fn withClientId(value)`](#fn-http_configoauth2withclientid)
     * [`fn withClientSecret(value)`](#fn-http_configoauth2withclientsecret)
     * [`fn withClientSecretFile(value)`](#fn-http_configoauth2withclientsecretfile)
     * [`fn withEndpointParams(value)`](#fn-http_configoauth2withendpointparams)
     * [`fn withEndpointParamsMixin(value)`](#fn-http_configoauth2withendpointparamsmixin)
+    * [`fn withNoProxy(value)`](#fn-http_configoauth2withnoproxy)
+    * [`fn withProxyConnectHeader(value)`](#fn-http_configoauth2withproxyconnectheader)
+    * [`fn withProxyConnectHeaderMixin(value)`](#fn-http_configoauth2withproxyconnectheadermixin)
+    * [`fn withProxyFromEnvironment(value=true)`](#fn-http_configoauth2withproxyfromenvironment)
     * [`fn withProxyUrl(value)`](#fn-http_configoauth2withproxyurl)
     * [`fn withProxyUrlMixin(value)`](#fn-http_configoauth2withproxyurlmixin)
     * [`fn withScopes(value)`](#fn-http_configoauth2withscopes)
@@ -64,9 +74,12 @@
     * [`fn withTLSConfigMixin(value)`](#fn-http_configoauth2withtlsconfigmixin)
     * [`fn withTokenUrl(value)`](#fn-http_configoauth2withtokenurl)
     * [`obj TLSConfig`](#obj-http_configoauth2tlsconfig)
+      * [`fn withCa(value)`](#fn-http_configoauth2tlsconfigwithca)
       * [`fn withCaFile(value)`](#fn-http_configoauth2tlsconfigwithcafile)
+      * [`fn withCert(value)`](#fn-http_configoauth2tlsconfigwithcert)
       * [`fn withCertFile(value)`](#fn-http_configoauth2tlsconfigwithcertfile)
       * [`fn withInsecureSkipVerify(value=true)`](#fn-http_configoauth2tlsconfigwithinsecureskipverify)
+      * [`fn withKey(value)`](#fn-http_configoauth2tlsconfigwithkey)
       * [`fn withKeyFile(value)`](#fn-http_configoauth2tlsconfigwithkeyfile)
       * [`fn withMaxVersion(value)`](#fn-http_configoauth2tlsconfigwithmaxversion)
       * [`fn withMinVersion(value)`](#fn-http_configoauth2tlsconfigwithminversion)
@@ -98,9 +111,12 @@
     * [`fn withUser(value)`](#fn-http_configproxy_urlwithuser)
     * [`fn withUserMixin(value)`](#fn-http_configproxy_urlwithusermixin)
   * [`obj tls_config`](#obj-http_configtls_config)
+    * [`fn withCa(value)`](#fn-http_configtls_configwithca)
     * [`fn withCaFile(value)`](#fn-http_configtls_configwithcafile)
+    * [`fn withCert(value)`](#fn-http_configtls_configwithcert)
     * [`fn withCertFile(value)`](#fn-http_configtls_configwithcertfile)
     * [`fn withInsecureSkipVerify(value=true)`](#fn-http_configtls_configwithinsecureskipverify)
+    * [`fn withKey(value)`](#fn-http_configtls_configwithkey)
     * [`fn withKeyFile(value)`](#fn-http_configtls_configwithkeyfile)
     * [`fn withMaxVersion(value)`](#fn-http_configtls_configwithmaxversion)
     * [`fn withMinVersion(value)`](#fn-http_configtls_configwithminversion)
@@ -213,6 +229,17 @@ PARAMETERS:
 
 ```jsonnet
 withToken(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+### fn withTokenFile
+
+```jsonnet
+withTokenFile(value)
 ```
 
 PARAMETERS:
@@ -450,6 +477,17 @@ PARAMETERS:
    - default value: `true`
 
 
+#### fn http_config.withNoProxy
+
+```jsonnet
+http_config.withNoProxy(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
 #### fn http_config.withOauth2
 
 ```jsonnet
@@ -470,6 +508,40 @@ http_config.withOauth2Mixin(value)
 PARAMETERS:
 
 * **value** (`object`)
+
+
+#### fn http_config.withProxyConnectHeader
+
+```jsonnet
+http_config.withProxyConnectHeader(value)
+```
+
+PARAMETERS:
+
+* **value** (`object`)
+
+
+#### fn http_config.withProxyConnectHeaderMixin
+
+```jsonnet
+http_config.withProxyConnectHeaderMixin(value)
+```
+
+PARAMETERS:
+
+* **value** (`object`)
+
+
+#### fn http_config.withProxyFromEnvironment
+
+```jsonnet
+http_config.withProxyFromEnvironment(value=true)
+```
+
+PARAMETERS:
+
+* **value** (`boolean`)
+   - default value: `true`
 
 
 #### fn http_config.withProxyUrl
@@ -588,6 +660,17 @@ PARAMETERS:
 * **value** (`string`)
 
 
+##### fn http_config.basic_auth.withUsernameFile
+
+```jsonnet
+http_config.basic_auth.withUsernameFile(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
 #### obj http_config.oauth2
 
 
@@ -644,6 +727,51 @@ http_config.oauth2.withEndpointParamsMixin(value)
 PARAMETERS:
 
 * **value** (`object`)
+
+
+##### fn http_config.oauth2.withNoProxy
+
+```jsonnet
+http_config.oauth2.withNoProxy(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+##### fn http_config.oauth2.withProxyConnectHeader
+
+```jsonnet
+http_config.oauth2.withProxyConnectHeader(value)
+```
+
+PARAMETERS:
+
+* **value** (`object`)
+
+
+##### fn http_config.oauth2.withProxyConnectHeaderMixin
+
+```jsonnet
+http_config.oauth2.withProxyConnectHeaderMixin(value)
+```
+
+PARAMETERS:
+
+* **value** (`object`)
+
+
+##### fn http_config.oauth2.withProxyFromEnvironment
+
+```jsonnet
+http_config.oauth2.withProxyFromEnvironment(value=true)
+```
+
+PARAMETERS:
+
+* **value** (`boolean`)
+   - default value: `true`
 
 
 ##### fn http_config.oauth2.withProxyUrl
@@ -726,10 +854,32 @@ PARAMETERS:
 ##### obj http_config.oauth2.TLSConfig
 
 
+###### fn http_config.oauth2.TLSConfig.withCa
+
+```jsonnet
+http_config.oauth2.TLSConfig.withCa(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
 ###### fn http_config.oauth2.TLSConfig.withCaFile
 
 ```jsonnet
 http_config.oauth2.TLSConfig.withCaFile(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+###### fn http_config.oauth2.TLSConfig.withCert
+
+```jsonnet
+http_config.oauth2.TLSConfig.withCert(value)
 ```
 
 PARAMETERS:
@@ -758,6 +908,17 @@ PARAMETERS:
 
 * **value** (`boolean`)
    - default value: `true`
+
+
+###### fn http_config.oauth2.TLSConfig.withKey
+
+```jsonnet
+http_config.oauth2.TLSConfig.withKey(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
 
 
 ###### fn http_config.oauth2.TLSConfig.withKeyFile
@@ -1081,10 +1242,32 @@ PARAMETERS:
 #### obj http_config.tls_config
 
 
+##### fn http_config.tls_config.withCa
+
+```jsonnet
+http_config.tls_config.withCa(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
 ##### fn http_config.tls_config.withCaFile
 
 ```jsonnet
 http_config.tls_config.withCaFile(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+##### fn http_config.tls_config.withCert
+
+```jsonnet
+http_config.tls_config.withCert(value)
 ```
 
 PARAMETERS:
@@ -1113,6 +1296,17 @@ PARAMETERS:
 
 * **value** (`boolean`)
    - default value: `true`
+
+
+##### fn http_config.tls_config.withKey
+
+```jsonnet
+http_config.tls_config.withKey(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
 
 
 ##### fn http_config.tls_config.withKeyFile
