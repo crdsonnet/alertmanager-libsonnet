@@ -1,36 +1,18 @@
-# victorops
+# msteams
 
 
 
 ## Index
 
-* [`fn withApiKey(value)`](#fn-withapikey)
-* [`fn withApiKeyFile(value)`](#fn-withapikeyfile)
-* [`fn withApiUrl(value)`](#fn-withapiurl)
-* [`fn withApiUrlMixin(value)`](#fn-withapiurlmixin)
-* [`fn withCustomFields(value)`](#fn-withcustomfields)
-* [`fn withCustomFieldsMixin(value)`](#fn-withcustomfieldsmixin)
-* [`fn withEntityDisplayName(value)`](#fn-withentitydisplayname)
 * [`fn withHttpConfig(value)`](#fn-withhttpconfig)
 * [`fn withHttpConfigMixin(value)`](#fn-withhttpconfigmixin)
-* [`fn withMessageType(value)`](#fn-withmessagetype)
-* [`fn withMonitoringTool(value)`](#fn-withmonitoringtool)
-* [`fn withRoutingKey(value)`](#fn-withroutingkey)
 * [`fn withSendResolved(value=true)`](#fn-withsendresolved)
-* [`fn withStateMessage(value)`](#fn-withstatemessage)
-* [`obj api_url`](#obj-api_url)
-  * [`fn withForceQuery(value=true)`](#fn-api_urlwithforcequery)
-  * [`fn withFragment(value)`](#fn-api_urlwithfragment)
-  * [`fn withHost(value)`](#fn-api_urlwithhost)
-  * [`fn withOmitHost(value=true)`](#fn-api_urlwithomithost)
-  * [`fn withOpaque(value)`](#fn-api_urlwithopaque)
-  * [`fn withPath(value)`](#fn-api_urlwithpath)
-  * [`fn withRawFragment(value)`](#fn-api_urlwithrawfragment)
-  * [`fn withRawPath(value)`](#fn-api_urlwithrawpath)
-  * [`fn withRawQuery(value)`](#fn-api_urlwithrawquery)
-  * [`fn withScheme(value)`](#fn-api_urlwithscheme)
-  * [`fn withUser(value)`](#fn-api_urlwithuser)
-  * [`fn withUserMixin(value)`](#fn-api_urlwithusermixin)
+* [`fn withSummary(value)`](#fn-withsummary)
+* [`fn withText(value)`](#fn-withtext)
+* [`fn withTitle(value)`](#fn-withtitle)
+* [`fn withWebhookUrl(value)`](#fn-withwebhookurl)
+* [`fn withWebhookUrlFile(value)`](#fn-withwebhookurlfile)
+* [`fn withWebhookUrlMixin(value)`](#fn-withwebhookurlmixin)
 * [`obj http_config`](#obj-http_config)
   * [`fn withAuthorization(value)`](#fn-http_configwithauthorization)
   * [`fn withAuthorizationMixin(value)`](#fn-http_configwithauthorizationmixin)
@@ -124,85 +106,21 @@
     * [`fn withMaxVersion(value)`](#fn-http_configtls_configwithmaxversion)
     * [`fn withMinVersion(value)`](#fn-http_configtls_configwithminversion)
     * [`fn withServerName(value)`](#fn-http_configtls_configwithservername)
+* [`obj webhook_url`](#obj-webhook_url)
+  * [`fn withForceQuery(value=true)`](#fn-webhook_urlwithforcequery)
+  * [`fn withFragment(value)`](#fn-webhook_urlwithfragment)
+  * [`fn withHost(value)`](#fn-webhook_urlwithhost)
+  * [`fn withOmitHost(value=true)`](#fn-webhook_urlwithomithost)
+  * [`fn withOpaque(value)`](#fn-webhook_urlwithopaque)
+  * [`fn withPath(value)`](#fn-webhook_urlwithpath)
+  * [`fn withRawFragment(value)`](#fn-webhook_urlwithrawfragment)
+  * [`fn withRawPath(value)`](#fn-webhook_urlwithrawpath)
+  * [`fn withRawQuery(value)`](#fn-webhook_urlwithrawquery)
+  * [`fn withScheme(value)`](#fn-webhook_urlwithscheme)
+  * [`fn withUser(value)`](#fn-webhook_urlwithuser)
+  * [`fn withUserMixin(value)`](#fn-webhook_urlwithusermixin)
 
 ## Fields
-
-### fn withApiKey
-
-```jsonnet
-withApiKey(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-### fn withApiKeyFile
-
-```jsonnet
-withApiKeyFile(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-### fn withApiUrl
-
-```jsonnet
-withApiUrl(value)
-```
-
-PARAMETERS:
-
-* **value** (`object`)
-
-
-### fn withApiUrlMixin
-
-```jsonnet
-withApiUrlMixin(value)
-```
-
-PARAMETERS:
-
-* **value** (`object`)
-
-
-### fn withCustomFields
-
-```jsonnet
-withCustomFields(value)
-```
-
-PARAMETERS:
-
-* **value** (`object`)
-
-
-### fn withCustomFieldsMixin
-
-```jsonnet
-withCustomFieldsMixin(value)
-```
-
-PARAMETERS:
-
-* **value** (`object`)
-
-
-### fn withEntityDisplayName
-
-```jsonnet
-withEntityDisplayName(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
 
 ### fn withHttpConfig
 
@@ -226,39 +144,6 @@ PARAMETERS:
 * **value** (`object`)
 
 
-### fn withMessageType
-
-```jsonnet
-withMessageType(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-### fn withMonitoringTool
-
-```jsonnet
-withMonitoringTool(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-### fn withRoutingKey
-
-```jsonnet
-withRoutingKey(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
 ### fn withSendResolved
 
 ```jsonnet
@@ -271,10 +156,10 @@ PARAMETERS:
    - default value: `true`
 
 
-### fn withStateMessage
+### fn withSummary
 
 ```jsonnet
-withStateMessage(value)
+withSummary(value)
 ```
 
 PARAMETERS:
@@ -282,25 +167,10 @@ PARAMETERS:
 * **value** (`string`)
 
 
-### obj api_url
-
-
-#### fn api_url.withForceQuery
+### fn withText
 
 ```jsonnet
-api_url.withForceQuery(value=true)
-```
-
-PARAMETERS:
-
-* **value** (`boolean`)
-   - default value: `true`
-
-
-#### fn api_url.withFragment
-
-```jsonnet
-api_url.withFragment(value)
+withText(value)
 ```
 
 PARAMETERS:
@@ -308,10 +178,10 @@ PARAMETERS:
 * **value** (`string`)
 
 
-#### fn api_url.withHost
+### fn withTitle
 
 ```jsonnet
-api_url.withHost(value)
+withTitle(value)
 ```
 
 PARAMETERS:
@@ -319,88 +189,10 @@ PARAMETERS:
 * **value** (`string`)
 
 
-#### fn api_url.withOmitHost
+### fn withWebhookUrl
 
 ```jsonnet
-api_url.withOmitHost(value=true)
-```
-
-PARAMETERS:
-
-* **value** (`boolean`)
-   - default value: `true`
-
-
-#### fn api_url.withOpaque
-
-```jsonnet
-api_url.withOpaque(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-#### fn api_url.withPath
-
-```jsonnet
-api_url.withPath(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-#### fn api_url.withRawFragment
-
-```jsonnet
-api_url.withRawFragment(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-#### fn api_url.withRawPath
-
-```jsonnet
-api_url.withRawPath(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-#### fn api_url.withRawQuery
-
-```jsonnet
-api_url.withRawQuery(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-#### fn api_url.withScheme
-
-```jsonnet
-api_url.withScheme(value)
-```
-
-PARAMETERS:
-
-* **value** (`string`)
-
-
-#### fn api_url.withUser
-
-```jsonnet
-api_url.withUser(value)
+withWebhookUrl(value)
 ```
 
 PARAMETERS:
@@ -408,10 +200,21 @@ PARAMETERS:
 * **value** (`object`)
 
 
-#### fn api_url.withUserMixin
+### fn withWebhookUrlFile
 
 ```jsonnet
-api_url.withUserMixin(value)
+withWebhookUrlFile(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+### fn withWebhookUrlMixin
+
+```jsonnet
+withWebhookUrlMixin(value)
 ```
 
 PARAMETERS:
@@ -1386,4 +1189,141 @@ http_config.tls_config.withServerName(value)
 PARAMETERS:
 
 * **value** (`string`)
+
+
+### obj webhook_url
+
+
+#### fn webhook_url.withForceQuery
+
+```jsonnet
+webhook_url.withForceQuery(value=true)
+```
+
+PARAMETERS:
+
+* **value** (`boolean`)
+   - default value: `true`
+
+
+#### fn webhook_url.withFragment
+
+```jsonnet
+webhook_url.withFragment(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withHost
+
+```jsonnet
+webhook_url.withHost(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withOmitHost
+
+```jsonnet
+webhook_url.withOmitHost(value=true)
+```
+
+PARAMETERS:
+
+* **value** (`boolean`)
+   - default value: `true`
+
+
+#### fn webhook_url.withOpaque
+
+```jsonnet
+webhook_url.withOpaque(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withPath
+
+```jsonnet
+webhook_url.withPath(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withRawFragment
+
+```jsonnet
+webhook_url.withRawFragment(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withRawPath
+
+```jsonnet
+webhook_url.withRawPath(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withRawQuery
+
+```jsonnet
+webhook_url.withRawQuery(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withScheme
+
+```jsonnet
+webhook_url.withScheme(value)
+```
+
+PARAMETERS:
+
+* **value** (`string`)
+
+
+#### fn webhook_url.withUser
+
+```jsonnet
+webhook_url.withUser(value)
+```
+
+PARAMETERS:
+
+* **value** (`object`)
+
+
+#### fn webhook_url.withUserMixin
+
+```jsonnet
+webhook_url.withUserMixin(value)
+```
+
+PARAMETERS:
+
+* **value** (`object`)
 
