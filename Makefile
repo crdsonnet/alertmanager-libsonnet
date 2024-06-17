@@ -6,7 +6,7 @@
 JSONNET_BIN ?= jrsonnet
 
 generate:
-	jrsonnet -J generator/vendor -S -c -m alertmanagerConfig/ generator/main.jsonnet
+	${JSONNET_BIN} -J generator/vendor -S -c -m alertmanagerConfig/ generator/main.jsonnet
 	jsonnetfmt -i alertmanagerConfig/raw.libsonnet
 	jsonnetfmt -i alertmanagerConfig/rawRoute.libsonnet
 
