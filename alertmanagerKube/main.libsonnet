@@ -1,6 +1,7 @@
 local alertmanagerConfig = import 'github.com/crdsonnet/alertmanager-libsonnet/alertmanagerConfig/main.libsonnet';
 local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
+local klib = import "github.com/jsonnet-libs/k8s-libsonnet/1.30/main.libsonnet";
 
 {
   '#'::
@@ -133,7 +134,7 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
       + statefulset.spec.template.spec.securityContext.withFsGroup(2000)
       + statefulset.spec.template.spec.securityContext.withRunAsUser(1000)
       + statefulset.spec.template.spec.securityContext.withRunAsNonRoot(true)
-      + k.util.configVolumeMount(
+      + klib.apps.v1.statefulSet.configMapVolumeMount(
         self.config_map.metadata.name,
         self.config_path,
       )
