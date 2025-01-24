@@ -12970,143 +12970,165 @@
   time_intervals+:
     {
       '#': { help: '', name: 'time_intervals' },
-      '#withDaysOfMonth': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withDaysOfMonth(value): {
-        days_of_month:
+      '#withName': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['string'] }], help: '' } },
+      withName(value): {
+        name: value,
+      },
+      '#withTimeIntervals': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+      withTimeIntervals(value): {
+        time_intervals:
           (if std.isArray(value)
            then value
            else [value]),
       },
-      '#withDaysOfMonthMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withDaysOfMonthMixin(value): {
-        days_of_month+:
+      '#withTimeIntervalsMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+      withTimeIntervalsMixin(value): {
+        time_intervals+:
           (if std.isArray(value)
            then value
            else [value]),
       },
-      days_of_month+:
+      time_intervals+:
         {
-          '#': { help: '', name: 'days_of_month' },
-          '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withBegin(value): {
-            Begin: value,
+          '#': { help: '', name: 'time_intervals' },
+          '#withDaysOfMonth': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withDaysOfMonth(value): {
+            days_of_month:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
-          '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withEnd(value): {
-            End: value,
+          '#withDaysOfMonthMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withDaysOfMonthMixin(value): {
+            days_of_month+:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
-        },
-      '#withLocation': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
-      withLocation(value): {
-        location: value,
-      },
-      '#withLocationMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
-      withLocationMixin(value): {
-        location+: value,
-      },
-      '#withMonths': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withMonths(value): {
-        months:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      '#withMonthsMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withMonthsMixin(value): {
-        months+:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      months+:
-        {
-          '#': { help: '', name: 'months' },
-          '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withBegin(value): {
-            Begin: value,
+          days_of_month+:
+            {
+              '#': { help: '', name: 'days_of_month' },
+              '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withBegin(value): {
+                Begin: value,
+              },
+              '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withEnd(value): {
+                End: value,
+              },
+            },
+          '#withLocation': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withLocation(value): {
+            location: value,
           },
-          '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withEnd(value): {
-            End: value,
+          '#withLocationMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['object'] }], help: '' } },
+          withLocationMixin(value): {
+            location+: value,
           },
-        },
-      '#withTimes': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withTimes(value): {
-        times:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      '#withTimesMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withTimesMixin(value): {
-        times+:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      times+:
-        {
-          '#': { help: '', name: 'times' },
-          '#withEndMinute': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withEndMinute(value): {
-            EndMinute: value,
+          '#withMonths': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withMonths(value): {
+            months:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
-          '#withStartMinute': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withStartMinute(value): {
-            StartMinute: value,
+          '#withMonthsMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withMonthsMixin(value): {
+            months+:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
-        },
-      '#withWeekdays': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withWeekdays(value): {
-        weekdays:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      '#withWeekdaysMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withWeekdaysMixin(value): {
-        weekdays+:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      weekdays+:
-        {
-          '#': { help: '', name: 'weekdays' },
-          '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withBegin(value): {
-            Begin: value,
+          months+:
+            {
+              '#': { help: '', name: 'months' },
+              '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withBegin(value): {
+                Begin: value,
+              },
+              '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withEnd(value): {
+                End: value,
+              },
+            },
+          '#withTimes': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withTimes(value): {
+            times:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
-          '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withEnd(value): {
-            End: value,
+          '#withTimesMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withTimesMixin(value): {
+            times+:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
-        },
-      '#withYears': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withYears(value): {
-        years:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      '#withYearsMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
-      withYearsMixin(value): {
-        years+:
-          (if std.isArray(value)
-           then value
-           else [value]),
-      },
-      years+:
-        {
-          '#': { help: '', name: 'years' },
-          '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withBegin(value): {
-            Begin: value,
+          times+:
+            {
+              '#': { help: '', name: 'times' },
+              '#withEndMinute': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withEndMinute(value): {
+                EndMinute: value,
+              },
+              '#withStartMinute': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withStartMinute(value): {
+                StartMinute: value,
+              },
+            },
+          '#withWeekdays': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withWeekdays(value): {
+            weekdays:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
-          '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
-          withEnd(value): {
-            End: value,
+          '#withWeekdaysMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withWeekdaysMixin(value): {
+            weekdays+:
+              (if std.isArray(value)
+               then value
+               else [value]),
           },
+          weekdays+:
+            {
+              '#': { help: '', name: 'weekdays' },
+              '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withBegin(value): {
+                Begin: value,
+              },
+              '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withEnd(value): {
+                End: value,
+              },
+            },
+          '#withYears': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withYears(value): {
+            years:
+              (if std.isArray(value)
+               then value
+               else [value]),
+          },
+          '#withYearsMixin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['array'] }], help: '' } },
+          withYearsMixin(value): {
+            years+:
+              (if std.isArray(value)
+               then value
+               else [value]),
+          },
+          years+:
+            {
+              '#': { help: '', name: 'years' },
+              '#withBegin': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withBegin(value): {
+                Begin: value,
+              },
+              '#withEnd': { 'function': { args: [{ default: null, enums: null, name: 'value', type: ['integer'] }], help: '' } },
+              withEnd(value): {
+                End: value,
+              },
+            },
         },
     },
 }
