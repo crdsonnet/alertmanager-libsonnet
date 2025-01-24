@@ -6,6 +6,29 @@ local schema =
   (import './schema.json')
   + {
     '$defs'+: {
+      // Due to struct naming, the TimeInterval object exists twice, this'll make the named item available
+      TimeIntervalItem: {
+        type: 'object',
+        properties: {
+          name: { type: 'string' },
+          time_intervals: {
+            items: {
+              '$ref': '#/$defs/TimeInterval',
+            },
+            type: 'array',
+          },
+        },
+      },
+      Config+: {
+        properties+: {
+          time_intervals: {
+            items: {
+              '$ref': '#/$defs/TimeIntervalItem',
+            },
+            type: 'array',
+          },
+        },
+      },
       Route+: {
         properties+: {
           routes+: { items: {} },  // Remove recursive $ref to prevent infinite recursion.
