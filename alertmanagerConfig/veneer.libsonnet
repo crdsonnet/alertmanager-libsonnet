@@ -222,27 +222,48 @@ local d = import 'github.com/jsonnet-libs/docsonnet/doc-util/main.libsonnet';
     local this = self,
 
     '#alert':: d.fn(
-      '`alert` matches an `alertname`.',
-      args=[d.arg('alertname', d.T.string)]
+      '`alert` matches one or more alert names.',
+      args=[d.arg('alertname', d.T.array)]
     ),
-    alert(alertname): fn('alertname=~"' + alertname + '"'),
+    alert(alertname): fn(
+      root.util.matchArrayOrString(
+        'alertname',
+        alertname
+      )
+    ),
 
     '#cluster':: d.fn(
       '`cluster` matches a cluster.',
-      args=[d.arg('cluster', d.T.string)]
+      args=[d.arg('cluster', d.T.array)]
     ),
-    cluster(cluster): fn('cluster="' + cluster + '"'),
+    cluster(cluster): fn(
+      root.util.matchArrayOrString(
+        'cluster',
+        cluster
+      )
+    ),
+
     '#team':: d.fn(
       '`team` matches a team.',
-      args=[d.arg('team', d.T.string)]
+      args=[d.arg('team', d.T.array)]
     ),
-    team(team): fn('team="' + team + '"'),
+    team(team): fn(
+      root.util.matchArrayOrString(
+        'team',
+        team
+      )
+    ),
 
     '#severity':: d.fn(
       '`severity` matches a severity.',
-      args=[d.arg('severity', d.T.string)]
+      args=[d.arg('severity', d.T.array)]
     ),
-    severity(severity): fn('severity=~"' + severity + '"'),
+    severity(severity): fn(
+      root.util.matchArrayOrString(
+        'severity',
+        severity
+      )
+    ),
 
     severityMatcher: {
       '#critical':: d.fn('`critical` matches a critical severity.',),
